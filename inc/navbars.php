@@ -15,9 +15,15 @@
     <nav>
       <ul>
         <li><a href="#" id="link1">Add income sources</a></li>
+<<<<<<< Updated upstream
         <li><a href="#" id="link2">Track Spendings</a></li>
         <li><a href="#" id="link3">Set Goals</a></li>
         <li><a href="#" id="link4">Graphs and Charts</a></li>
+=======
+        <li><a href="#">Add transactions</a></li>
+        <li><a href="#">Set goals</a></li>
+        <li><a href="#">Set alerts</a></li>
+>>>>>>> Stashed changes
       </ul>
     </nav>
   </div>
@@ -37,6 +43,7 @@
 <script type="text/javascript">
   $("#link1").click(function(){
   $("#here").load("userFunctionalityPages/addIncomeSrcs.php");
+  // location.reload();
   });
   $("#link3").click(function(){
   $("#here").load("userFunctionalityPages/setGoals.php");
