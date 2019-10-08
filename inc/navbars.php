@@ -1,10 +1,20 @@
+<?php
+  if(isset($_SESSION['currentUser'])){
+    $dest = 'userDashboard.php';
+  }
+  else {
+    $dest = 'landingPage.php';
+  }
+?>
+
 <div class="topnavbar">
   <nav>
     <ul>
-      <li><a href="landingPage.php"><img src="logo-3.png" alt="ExpenseAnalyzer" width="40" height="40"></a></li>
+      <li><a href="<?php echo $dest ?>"><img src="logo-3.png" alt="ExpenseAnalyzer" width="40" height="40"></a></li>
       <div style="float:right;padding-right:20px;padding-top:20px;">
         <li><a href="#" id="link2">Transaction History</a></li>
         <li><a href="#" id="link4">Analyze Your Expenses</a></li>
+        <li><a href="#" id="link4">Graphs and Charts</a></li>
         <li><a href="#">News</a></li>
         <li><a href="#">About</a></li>
         <li><button class="button btnFade btnBlueGreen" id="logout"><i class="fa fa-sign-out" aria-hidden="true">Log Out</button></i></li>
