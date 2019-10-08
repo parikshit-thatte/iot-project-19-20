@@ -30,6 +30,7 @@
     <section id="showcase">
       <div class="container">
         <h1>Ready For Tomorrow? Make A Sense Of It With <span style="color:#ffcc00;">Expense</span><span style="color:#009999;">Analyzer</span>!!</h1>
+        <h3>Manage Income and Expenses - Automatic Bill Reminders - Reports - Privacy</h3>
       </div>
     </section>
     <section id="boxes">
