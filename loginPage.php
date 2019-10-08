@@ -4,7 +4,7 @@
 <div class="topnavbar">
   <nav>
     <ul>
-      <li><a href="landingPage.php">Brand Logo</a></li>
+      <li><a href="landingPage.php"><img src="logo-3.png" alt="ExpenseAnalyzer" width="35" height="35"></a></li>
       <li><a href="#">Contact Us</a></li>
       <li><a href="#">About</a></li>
       <li class="fl"><a href="registerPage.php">Register</a></li>

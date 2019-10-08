@@ -1,8 +1,8 @@
 <div class="topnavbar">
   <nav>
     <ul>
-      <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-      <div style="float:right;padding-right:20px;">
+      <li><a href="landingPage.php"><img src="logo-3.png" alt="ExpenseAnalyzer" width="40" height="40"></a></li>
+      <div style="float:right;padding-right:20px;padding-top:20px;">
         <li><a href="#">News</a></li>
         <li><a href="#">About</a></li>
         <li><button class="button btnFade btnBlueGreen" id="logout"><i class="fa fa-sign-out" aria-hidden="true">Log Out</button></i></li>
@@ -15,9 +15,9 @@
     <nav>
       <ul>
         <li><a href="#" id="link1">Add income sources</a></li>
-        <li><a href="#">Link 2</a></li>
-        <li><a href="#">Link 3</a></li>
-        <li><a href="#">Link 4</a></li>
+        <li><a href="#" id="link2">Track Spendings</a></li>
+        <li><a href="#" id="link3">Set Goals</a></li>
+        <li><a href="#" id="link4">Graphs and Charts</a></li>
       </ul>
     </nav>
   </div>
@@ -37,5 +37,8 @@
 <script type="text/javascript">
   $("#link1").click(function(){
   $("#here").load("userFunctionalityPages/addIncomeSrcs.php");
+  });
+  $("#link3").click(function(){
+  $("#here").load("userFunctionalityPages/setGoals.php");
   });
 </script>

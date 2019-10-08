@@ -10,6 +10,8 @@ a.link {
 
 div.topnavbar {
   align-content: center;
+  min-height:70px;
+  border-bottom:#336600 3px solid;
 }
 
 div.topnavbar ul {
@@ -28,7 +30,7 @@ div.topnavbar li a {
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 20px 16px;
   text-decoration: none;
 }
 

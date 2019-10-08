@@ -92,7 +92,7 @@
       die("Connection failed: ".$conn->connect_error);
   }
 
-  $sql = "select id from users where username='$_SESSION['currentUser']'";
+  $sql = "select id from users where username='${username}'";
   $result = $conn->query($sql);
   $r = $result->fetch_array();
 
