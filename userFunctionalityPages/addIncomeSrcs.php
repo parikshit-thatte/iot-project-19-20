@@ -22,8 +22,7 @@
               <small>Enter 0 for one-time income</small>
           </div>
           <div class="col-75">
-              <input type="text" name="recurrence" placeholder="Enter the period
-              ">
+              <input type="text" name="recurrence" placeholder="Enter the period">
           </div>
         </div>
         <div class="row">
@@ -31,7 +30,7 @@
               <label for="amount">Amount :</label>
           </div>
           <div class="col-75">
-              <input type="email" name="amount" placeholder="Enter the amount">
+              <input type="text" name="amount" placeholder="Enter the amount">
           </div>
         </div>
         <div style="width: 30px; margin: 0 auto;">
@@ -43,6 +42,7 @@
 </html>
 
 <?php
+  session_start();
   if ($_SERVER["REQUEST_METHOD"] == "POST"){
     if (empty($_POST["name"]))
     {
@@ -91,8 +91,8 @@
   if ($conn->connect_error) {
       die("Connection failed: ".$conn->connect_error);
   }
-
-  $sql = "select id from users where username='${username}'";
+  $username = $_SESSION['currentUser'];
+  $sql = "select id from users where username='$username'";
   $result = $conn->query($sql);
   $r = $result->fetch_array();
 
@@ -101,4 +101,5 @@
   $sql = "insert into income_srcs(name, recurrence, amount, user_id) values('$name', '$recurrence', '$amount', '$user_id')";
   $conn->query($sql);
   $_SESSION['successMsg'] = "Added successfully!";
+
 ?>
