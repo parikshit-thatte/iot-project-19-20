@@ -23,21 +23,35 @@
   </nav>
 </div>
 <div class="main-content">
-  <div class="sidenavbar">
-    <nav>
-      <ul>
-        <li><a href="#" id="link1">Add income sources</a></li>
-        <li><a href="#">Add transactions</a></li>
-        <li><a href="#" id="link3">Set Goals</a></li>
-        <li><a href="#">Set alerts</a></li>
-      </ul>
-    </nav>
-  </div>
-  <input type="hidden" name="mysession" id="mysession">
-</div>
-<div id="here" style="width:50%; margin: auto;">
+  <span>
+    <div class="sidenavbar">
+      <nav>
+        <ul>
+          <li><a href="#" id="link1">Add income sources</a></li>
+          <li><a href="#">Add transactions</a></li>
+          <li><a href="#" id="link3">Set Goals</a></li>
+          <li><a href="#">Set alerts</a></li>
+        </ul>
+      </nav>
+    </div>
+    <input type="hidden" name="mysession" id="mysession">
+  </span>
+  <span>
+      <div style="text-align: center;">
+        <div id="content1" style="display: block;">
 
+        </div>
+      </div>
+  </span>
+  <span>
+    <aside>
+      <div id="here" class="form-group-side" >
+
+      </div>
+    </aside>
+  </span>
 </div>
+
 
 <script type="text/javascript">
       document.getElementById("logout").onclick = function () {
@@ -48,7 +62,8 @@
 
 <script type="text/javascript">
   $("#link1").click(function(){
-  $("#here").load("userFunctionalityPages/addIncomeSrcs.php");
+  $("#content1").load("userFunctionalityPages/addIncomeSrcs.php #abcd");
+  $("#here").load("userFunctionalityPages/addIncomeSrcs.php #defg");
   // location.reload();
   });
   $("#link3").click(function(){

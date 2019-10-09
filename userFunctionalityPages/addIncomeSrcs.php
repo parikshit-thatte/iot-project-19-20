@@ -1,84 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="inc/main.css">
-  </head>
-  <body>
-    <div class="form-group">
-      <form class="" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
-        <div class="row">
-          <div class="col-25">
-              <label for="name">Name :</label>
-          </div>
-          <div class="col-75">
-              <input type="text" name="name" placeholder="Enter name of your income source">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-25">
-              <label for="recurrence">Recurrence(in months) :</label>
-              <small>Enter 0 for one-time income</small>
-          </div>
-          <div class="col-75">
-              <input type="text" name="recurrence" placeholder="Enter the period">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-25">
-              <label for="amount">Amount :</label>
-          </div>
-          <div class="col-75">
-              <input type="text" name="amount" placeholder="Enter the amount">
-          </div>
-        </div>
-        <div style="width: 30px; margin: 0 auto;">
-            <button  class="button btnFade btnBlueGreen" type="submit" name="button">Submit</button>
-        </div>
-      </form>
-    </div>
-  </body>
-</html>
-
 <?php
   session_start();
-  if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    if (empty($_POST["name"]))
-    {
-      $_SESSION["nameErr"] = "* name is required";
-    }
-    else
-    {
-      $name = test_input($_POST["name"]);
-    }
-
-    if (empty($_POST["recurrence"]))
-    {
-      $_SESSION["recurErr"] = "* recurrence is required";
-    }
-    else
-    {
-      $recurrence = test_input($_POST["recurrence"]);
-    }
-
-    if (empty($_POST["amount"]))
-    {
-      $_SESSION["amtErr"] = "* amount is required";
-    }
-    else
-    {
-      $amount = test_input($_POST["amount"]);
-    }
-  }
-
-  function test_input($data)
-  {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-  }
 
   $servername = "localhost";
   $username = "root";
@@ -95,11 +16,71 @@
   $sql = "select id from users where username='$username'";
   $result = $conn->query($sql);
   $r = $result->fetch_array();
-
   $user_id = $r['id'];
 
-  $sql = "insert into income_srcs(name, recurrence, amount, user_id) values('$name', '$recurrence', '$amount', '$user_id')";
-  $conn->query($sql);
-  $_SESSION['successMsg'] = "Added successfully!";
+  $sql2 = "SELECT * FROM income_srcs WHERE user_id='$user_id'";
+  $result2 = $conn->query($sql2);
 
+  $monthly_inc = 0;
+  foreach ($result2 as $res) {
+    $monthly_inc += $res['amount']/$res['recurrence'] ;
+  }
+  $conn->close();
 ?>
+
+<div class="card shadow1" id="abcd">
+  <h2>Your current monthly income is</h2>
+  <p><?php echo "<h3>$monthly_inc</h3>"; ?></p>
+  <table class="table">
+    <tr>
+      <th>Source name</th>
+      <th>Recurrence</th>
+      <th>Amount</th>
+    </tr>
+      <?php foreach ($result2 as $res) { ?>
+        <tr>
+        <td>
+          <?php echo $res['name']; ?>
+        </td>
+        <td>
+          <?php echo $res['recurrence']; ?>
+        </td>
+        <td>
+          <?php echo $res['amount']; ?>
+        </td>
+      </tr>
+      <?php } ?>
+  </table>
+</div>
+
+<form class="form" action="<?php echo htmlspecialchars('userFunctionalityPages/addIncomeToDB.php'); ?>" method="post" id="defg">
+  <h3>Add a new income source</h3>
+  <div class="row">
+    <div class="col-25">
+        <label for="name" class="side-label">Name :</label>
+    </div>
+    <div class="col-75">
+        <input type="text" name="name" class="input-side">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+        <label for="recurrence" class="side-label">Recurrence :</label>
+        <!-- <small>Enter 0 for one-time income</small> -->
+    </div>
+    <div class="col-75">
+        <input type="text" name="recurrence" placeholder="in months" class="input-side">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+        <label for="amount" class="side-label">Amount :</label>
+    </div>
+    <div class="col-75">
+        <input type="text" name="amount" class="input-side">
+    </div>
+  </div>
+  <div style="width: 30px; margin: 0 auto;">
+      <button  class="button btnFade btnBlueGreen" type="submit" name="button">Submit</button>
+  </div>
+</form>

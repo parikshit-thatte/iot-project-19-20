@@ -24,6 +24,8 @@ div.topnavbar ul {
 
 div.topnavbar li {
   float: left;
+  width: 40;
+  height: 40;
 }
 
 div.topnavbar li a {
@@ -48,7 +50,8 @@ div.topnavbar li.fl {
 div.sidenavbar {
   /* float: left; */
   margin-right: : 0;
-  width: 15%;
+  width: auto;
+  height: 100%;
 }
 
 div.sidenavbar ul {
@@ -56,7 +59,8 @@ div.sidenavbar ul {
   margin: 0;
   padding: 0;
   width: 20%;
-  position: fixed;
+  position: absolute;
+  float: left;
   height: 100%;
   overflow: auto;
   background-color: #f1f1f1;
@@ -110,10 +114,16 @@ body {
   background: #21825B;
 }
 
+.main-content {
+  width: 100%;
+}
+
 .form-group {
   background-color: #f2f2f2;
-  margin: 30px;
-  padding: 50px;
+  margin: 20px;
+  padding: 25px;
+  display: block;
+  width: 625px;
   display: inline-block;
 }
 
@@ -126,7 +136,35 @@ input[type=text],input[type=password],input[type=email], select, textarea {
 }
 
 label {
-  padding: 12px 12px 12px 0;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+.form-group-side {
+  position: relative;
+  background-color: #f2f2f2;
+  margin: 0;
+  width: auto;
+  height: 650px;
+  float: right;
+  display: block;
+}
+
+form.form {
+    padding: 25px;
+}
+
+ input.input-side[type=text],input.input-side[type=password],input.input-side[type=email], select.input-side, textarea.input-side {
+  width: 100px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label.side-label {
+  padding: 0;
   display: inline-block;
 }
 
@@ -137,7 +175,7 @@ label {
 }
 
 .col-75 {
-  float: left;
+  float: right;
   width: 75%;
   margin-top: 6px;
 }
@@ -159,4 +197,42 @@ label {
 
 span.error {
   color: #ff0000;
+}
+
+.card {
+  display: block;
+  position: absolute;
+  left: 20%;
+  margin-left: 50px;
+  padding: 40px;
+  background: #fff;
+  width: 50%;
+  border-radius: 20px;
+}
+
+.shadow1 {
+  box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);
+}
+
+.table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table td, .table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.table tr:nth-child(even){background-color: #f2f2f2;}
+
+.table tr:hover {background-color: #ddd;}
+
+.table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
 }
