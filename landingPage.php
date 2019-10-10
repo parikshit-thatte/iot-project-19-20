@@ -10,7 +10,7 @@
     <header>
       <div class="container">
         <div id="branding">
-          <h1><img src="logo-3.png" alt="ExpenseAnalyzer" width="50" height="50"></h1>
+          <h1><a href="landingPage.php"><img src="logo-3.png" alt="ExpenseAnalyzer" width="50" height="50"></a></h1>
         </div>
         <div id="branding">
           <h1><span class="highlight">Expense</span>Analyzer</h1>
