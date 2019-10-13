@@ -1,84 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="inc/main.css">
-  </head>
-  <body>
-    <div class="form-group">
-      <form class="" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
-        <div class="row">
-          <div class="col-25">
-              <label for="name">Name :</label>
-          </div>
-          <div class="col-75">
-              <input type="text" name="name" placeholder="Enter name of your income source">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-25">
-              <label for="recurrence">Recurrence(in months) :</label>
-              <small>Enter 0 for one-time income</small>
-          </div>
-          <div class="col-75">
-              <input type="text" name="recurrence" placeholder="Enter the period
-              ">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-25">
-              <label for="amount">Amount :</label>
-          </div>
-          <div class="col-75">
-              <input type="email" name="amount" placeholder="Enter the amount">
-          </div>
-        </div>
-        <div style="width: 30px; margin: 0 auto;">
-            <button  class="button btnFade btnBlueGreen" type="submit" name="button">Submit</button>
-        </div>
-      </form>
-    </div>
-  </body>
-</html>
-
 <?php
-  if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    if (empty($_POST["name"]))
-    {
-      $_SESSION["nameErr"] = "* name is required";
-    }
-    else
-    {
-      $name = test_input($_POST["name"]);
-    }
-
-    if (empty($_POST["recurrence"]))
-    {
-      $_SESSION["recurErr"] = "* recurrence is required";
-    }
-    else
-    {
-      $recurrence = test_input($_POST["recurrence"]);
-    }
-
-    if (empty($_POST["amount"]))
-    {
-      $_SESSION["amtErr"] = "* amount is required";
-    }
-    else
-    {
-      $amount = test_input($_POST["amount"]);
-    }
-  }
-
-  function test_input($data)
-  {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-  }
+  session_start();
 
   $servername = "localhost";
   $username = "root";
@@ -91,14 +12,126 @@
   if ($conn->connect_error) {
       die("Connection failed: ".$conn->connect_error);
   }
-
-  $sql = "select id from users where username='${username}'";
+  $username = $_SESSION['currentUser'];
+  $sql = "select id from users where username='$username'";
   $result = $conn->query($sql);
   $r = $result->fetch_array();
-
   $user_id = $r['id'];
 
-  $sql = "insert into income_srcs(name, recurrence, amount, user_id) values('$name', '$recurrence', '$amount', '$user_id')";
-  $conn->query($sql);
-  $_SESSION['successMsg'] = "Added successfully!";
+  $sql2 = "SELECT * FROM goals1 WHERE user_id='$user_id'";
+  $result2 = $conn->query($sql2);
+
+  $goalamount = 0;
+  foreach ($result2 as $res) {
+    $goalamount += $res['goalamount'] ;
+  }
+  $conn->close();
 ?>
+
+<div class="card shadow1" id="abcd">
+  <h2>Your Total Goal Amount Is</h2>
+  <p><?php echo "<h3>$goalamount ₹</h3>"; ?></p>
+  <table class="table">
+    <tr>
+      <th>Goal Type</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Goal Amount(in ₹)</th>
+    </tr>
+      <?php foreach ($result2 as $res) { ?>
+        <tr>
+        <td>
+          <?php echo $res['goaltype']; ?>
+        </td>
+        <td>
+          <?php echo $res['startdate']; ?>
+        </td>
+        <td>
+          <?php echo $res['enddate']; ?>
+        </td>
+        <td>
+          <?php echo $res['goalamount']; ?>
+        </td>
+      </tr>
+      <?php } ?>
+  </table>
+</div>
+<form class="form" action="<?php echo htmlspecialchars('userFunctionalityPages/AddgoaltoDB.php'); ?>" method="post" id="defg">
+<h3>Set New Goal</h3>
+<div class="row">
+<div class="col-25">
+    <label for="goaltype">Goal Type</label>
+</div>
+<div class="col-75">
+<input type="text" name="goaltype" list="goaltype" />
+    <datalist id="goaltype">
+      <option value="Emergency Fund">Emergency Fund</option>
+      <option value="Paying Off Debt">Paying Off Debt</option>
+      <option value="Buying A home">Buying A home</option>
+      <option value="Saving for Retirement">Saving for Retirement</option>
+      <option value="College Or School Fees">College Or School Fees</option>
+      <option value="New Car">New Car</option>
+      <option value="Vacation">Vacation</option>
+      <option value="Large Purchases">Large Purchases</option>
+      <option value="Charity">Charity</option>
+      <option value="Business">Business</option>
+    </datalist>
+  </div>
+</div>
+<div class="row">
+<div class="col-25">
+    <label for="startdate" class="side-label">Start Date:</label>
+    <!-- <small>Enter 0 for one-time income</small> -->
+</div>
+<div class="col-75">
+    <input type="date" name="startdate" placeholder="dd/mm/yy" class="input-side">
+</div>
+</div>
+<div class="row">
+<div class="col-25">
+    <label for="enddate" class="side-label">End Date:</label>
+    <!-- <small>Enter 0 for one-time income</small> -->
+</div>
+<div class="col-75">
+    <input type="date" min="2018-01-01" name="enddate" placeholder="dd/mm/yy" class="input-side">
+</div>
+</div>
+<div class="row">
+<div class="col-25">
+    <label for="goalamount" class="side-label">Goal Amount:</label>
+</div>
+<div class="col-75">
+    <input type="text" name="goalamount" class="input-side">
+</div>
+</div>
+<div style="width: 30px; margin: 0 auto;">
+  <button  class="button btnFade btnBlueGreen" type="submit" name="button">Submit</button>
+</div>
+</form>
+<!-- delete a previous goals -->
+<form class="form" action="<?php echo htmlspecialchars('userFunctionalityPages/deletepreviousgoals.php'); ?>" method="post" id="defg">
+<h3>Delete Previous Goals Recods</h3>
+<div class="row">
+<div class="col-25">
+    <label for="goaltype">Goal Type</label>
+</div>
+<div class="col-75">
+<input type="text" name="goaltype" list="goaltype" />
+    <datalist id="goaltype">
+      <option value="Emergency Fund">Emergency Fund</option>
+      <option value="Paying Off Debt">Paying Off Debt</option>
+      <option value="Buying A home">Buying A home</option>
+      <option value="Saving for Retirement">Saving for Retirement</option>
+      <option value="College Or School Fees">College Or School Fees</option>
+      <option value="New Car">New Car</option>
+      <option value="Vacation">Vacation</option>
+      <option value="Large Purchases">Large Purchases</option>
+      <option value="Charity">Charity</option>
+      <option value="Business">Business</option>
+    </datalist>
+  </div>
+</div>
+<div style="width: 30px; margin: 0 auto;">
+  <button  class="button btnFade btnBlueGreen" type="submit" name="delete">Delete</button>
+</div>
+</form>

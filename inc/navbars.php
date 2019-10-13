@@ -17,8 +17,8 @@
       $("#here").load("userFunctionalityPages/addTransactions.php #defg");
     }
     else if (key == '3'){
-      $("#content1").load("userFunctionalityPages/addIncomeSrcs.php #abcd");
-      $("#here").load("userFunctionalityPages/addIncomeSrcs.php #defg");
+      $("#content1").load("userFunctionalityPages/setGoals.php #abcd");
+      $("#here").load("userFunctionalityPages/setGoals.php #defg");
     }
     else if (key == '4'){
       $("#content1").load("userFunctionalityPages/addIncomeSrcs.php #abcd");
