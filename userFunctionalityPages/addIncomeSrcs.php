@@ -70,7 +70,7 @@
         <!-- <small>Enter 0 for one-time income</small> -->
     </div>
     <div class="col-75">
-        <input type="text" name="recurrence" placeholder="in months" class="input-side">
+        <input type="number" name="recurrence" placeholder="in months" class="input-side">
     </div>
   </div>
   <div class="row">

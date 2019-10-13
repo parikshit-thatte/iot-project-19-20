@@ -164,17 +164,18 @@ article#main-col{
   font-size: 20px;
 }
 .contact{
-  width:280px;
-	margin-top:25%;
-	margin-left:38%;
-  float:left;
-  width:65%;
+
+	margin-left:25%;
+  margin-right:
+  float:inherit;
+  width:50%;
   align-content: center;
-  background:white;
+  background: #008080;
   margin-top: 10px;
   margin-bottom: 170px;
-  color:#34495E;
+  color:white;
   font-size: 20px;
+  border-radius: 20px;
 }
 .contact table{
   /* margin-top:450px; */
@@ -186,7 +187,7 @@ article#main-col{
   border:none;
   background:none;
   padding-bottom: 15px;
-  color:#34495E;
+  color:white;
   font-size:18px;
   width:300px;
   float:left;
@@ -196,6 +197,7 @@ article#main-col{
 .btn{
     align-items: center;
 		width:20%;
+    margin-left: 5%;
 		background:#34495E;
 		border:2px solid #34495E;
 		color:green;
@@ -203,6 +205,7 @@ article#main-col{
 		font-size:20px;
 		cursor:pointer;
 		margin:10px 0;
+    border-radius: 10px;
 }
 .btn:hover {
 		background-color: #336699;
