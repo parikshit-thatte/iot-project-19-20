@@ -14,7 +14,6 @@
     }
     else if (key == '2'){
       $("#content1").load("userFunctionalityPages/addTransactions.php #abcd");
-      $("#here").load("userFunctionalityPages/addTransactions.php #defg");
     }
     else if (key == '3'){
       $("#content1").load("userFunctionalityPages/setGoals.php #abcd");
@@ -24,7 +23,13 @@
       $("#content1").load("userFunctionalityPages/setAlerts.php #abcd");
       $("#here").load("userFunctionalityPages/setAlerts.php #defg");
     }
+  }
+  function loadTHistory(){
+    $("#content1").load("userFunctionalityPages/transactionHistory.php #abcd");
+  }
 
+  function loadPieChart(){
+    $("#content1").load("userFunctionalityPages/analyzeExpenseForm.php #form");
   }
 </script>
 
@@ -33,8 +38,8 @@
     <ul>
       <li><a href="<?php echo $dest ?>"><img src="logo-3.png" alt="ExpenseAnalyzer" width="50" height="50"></a></li>
       <div style="float:right;padding-right:20px;padding-top:20px;">
-        <li><a href="#" id="link2">Transaction History</a></li>
-        <li><a href="#" id="link4">Analyze Your Expenses</a></li>
+        <li><a id="link4" onclick="loadTHistory()">Transaction History</a></li>
+        <li><a id="link4" onclick="loadPieChart()">Analyze Your Expenses</a></li>
         <li><a href="#" id="link4">Graphs and Charts</a></li>
         <li><a href="contactus.html">Contact us</a></li>
         <li><a href="about.html">About</a></li>

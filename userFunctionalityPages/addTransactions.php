@@ -1,79 +1,99 @@
-<?php
-  session_start();
-
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "ip-project";
-
-  // Create connection
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  // Check connection
-  if ($conn->connect_error) {
-      die("Connection failed: ".$conn->connect_error);
-  }
-  $username = $_SESSION['currentUser'];
-  $sql = "select id from users where username='$username'";
-  $result = $conn->query($sql);
-  $r = $result->fetch_array();
-  $user_id = $r['id'];
-  echo $user_id;
-  $sql2 = "SELECT t.t_id, t.name, b.recurrence FROM transactions t, bills b ON t.t_id = b.t_id WHERE user_id='$user_id'";
-  $result2 = $conn->query($sql2);
-  echo $result2;
-  echo "rvsd";
-  $conn->close();
-  echo "sgraynjhwr";
-?>
-
-<div class="card shadow1" id="abcd">
-  <table class="table">
-    <tr>
-      <th>Source name</th>
-      <th>Recurrence</th>
-      <th>Amount</th>
-    </tr>
-      <?php foreach ($result2 as $res) { ?>
-        <tr>
-        <td>
-          <?php echo $res['name']; ?>
-        </td>
-        <td>
-          <?php echo $res['recurrence']; ?>
-        </td>
-        <td>
-          <?php echo $res['amount']; ?>
-        </td>
-      </tr>
-      <?php } ?>
-  </table>
-</div>
-
-<form class="form" action="<?php echo htmlspecialchars('userFunctionalityPages/addIncomeToDB.php'); ?>" method="post" id="defg">
-  <h3>Add a new income source</h3>
+<form class="form-group" action="<?php echo htmlspecialchars('userFunctionalityPages/addTransactionToDB.php'); ?>" method="post" id="abcd">
+  <h3>Add a new transaction</h3>
   <div class="row">
     <div class="col-25">
-        <label for="name" class="side-label">Name :</label>
+        <label for="name" class="">Name :</label>
     </div>
     <div class="col-75">
-        <input type="text" name="name" class="input-side">
+        <input type="text" name="name" class="">
     </div>
   </div>
   <div class="row">
     <div class="col-25">
-        <label for="recurrence" class="side-label">Recurrence :</label>
-        <!-- <small>Enter 0 for one-time income</small> -->
+        <label for="amount" class="">Amount :</label>
     </div>
     <div class="col-75">
-        <input type="text" name="recurrence" placeholder="in months" class="input-side">
+        <input type="text" name="amount" placeholder="in months" class="">
     </div>
   </div>
   <div class="row">
     <div class="col-25">
-        <label for="amount" class="side-label">Amount :</label>
+        <label for="paid_to" class="">Paid to :</label>
     </div>
     <div class="col-75">
-        <input type="text" name="amount" class="input-side">
+        <input type="text" name="paid_to" class="">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+        <label for="date" class="">Date :</label>
+    </div>
+    <div class="col-75">
+        <input type="date" name="date" class="">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+        <label for="type" class="">Type :</label>
+    </div>
+    <div class="col-75" id="efg">
+        <select id="dropdown" class="" name="type">
+          <option value="bill">Bill</option>
+          <option value="policy">Policy</option>
+          <option value="loan">Loan</option>
+          <option value="food">Food</option>
+          <option value="travel">Travel</option>
+          <option value="health">Health & Medicine</option>
+          <option value="other">Other</option>
+        </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25" id="labelArea">
+      <label for="recurrence" class="">Recurrence(for bills,loans,policies) :</label>
+    </div>
+    <div class="col-75" id="inputArea">
+      <input type="text" name="recurrence" class="">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25" id="labelArea">
+      <label for="tamount" class="">Total amount(for loan) :</label>
+    </div>
+    <div class="col-75" id="inputArea">
+      <input type="text" name="tamount" class="">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25" id="labelArea">
+      <label for="startdate" class="">Start date(for loan) :</label>
+    </div>
+    <div class="col-75" id="inputArea">
+      <input type="date" name="startdate" class="">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25" id="labelArea">
+      <label for="enddate" class="">End date(for loan,policy) :</label>
+    </div>
+    <div class="col-75" id="inputArea">
+      <input type="date" name="enddate" class="">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25" id="labelArea">
+      <label for="famount" class="">Final amount(for Policy) :</label>
+    </div>
+    <div class="col-75" id="inputArea">
+      <input type="text" name="famount" class="">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25" id="labelArea">
+      <label for="t_description" class="">Description(for other) :</label>
+    </div>
+    <div class="col-75" id="inputArea">
+      <input type="text" name="t_description" class="">
     </div>
   </div>
   <div style="width: 30px; margin: 0 auto;">
