@@ -194,6 +194,10 @@ article#main-col{
   margin:5px;
   overflow:hidden;
 }
+.servicesimg{
+  align-content: center;
+  margin-left: 200px;
+}
 .btn{
     align-items: center;
 		width:20%;
