@@ -20,7 +20,7 @@ use PHPMailer\PHPMailer\PHPMailer;
       $mail->HOST = "smtp.gmail.com";
       $mail->SMTPAuth = true;
       $mail->Username = "jokerhardy1234@gmail.com";
-      $mail->Password="";
+      $mail->Password="Jokerhardy1599";
       $mail->Port=587;
       $mail->SMTPSecure ="tls";
       $mail->Host = 'tls://smtp.gmail.com:587';
@@ -30,8 +30,10 @@ use PHPMailer\PHPMailer\PHPMailer;
       $mail->Subject=$subject;
       $mail->Body = $body;
 
-      if($mail->send())
+      if($mail->send()){
         $response = "Email is send";
+        header("Location: landingPage.php");
+      }
       else {
         $response = "something is wrong <br><br>".$mail->ErrorInfo;
       }
