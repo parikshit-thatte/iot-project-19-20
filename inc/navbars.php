@@ -6,6 +6,27 @@
     $dest = 'landingPage.php';
   }
 ?>
+<script type="text/javascript">
+  function loadForm(key){
+    if(key == '1'){
+      $("#content1").load("userFunctionalityPages/addIncomeSrcs.php #abcd");
+      $("#here").load("userFunctionalityPages/addIncomeSrcs.php #defg");
+    }
+    else if (key == '2'){
+      $("#content1").load("userFunctionalityPages/addTransactions.php #abcd");
+      $("#here").load("userFunctionalityPages/addTransactions.php #defg");
+    }
+    else if (key == '3'){
+      $("#content1").load("userFunctionalityPages/addIncomeSrcs.php #abcd");
+      $("#here").load("userFunctionalityPages/addIncomeSrcs.php #defg");
+    }
+    else if (key == '4'){
+      $("#content1").load("userFunctionalityPages/addIncomeSrcs.php #abcd");
+      $("#here").load("userFunctionalityPages/addIncomeSrcs.php #defg");
+    }
+
+  }
+</script>
 
 <div class="topnavbar">
   <nav>
@@ -27,10 +48,10 @@
     <div class="sidenavbar">
       <nav>
         <ul>
-          <li><a href="#" id="link1">Add income sources</a></li>
-          <li><a href="#">Add transactions</a></li>
-          <li><a href="#" id="link3">Set Goals</a></li>
-          <li><a href="#">Set alerts</a></li>
+          <li><a href="#" id="link1" onclick="loadForm('1')">Add income sources</a></li>
+          <li><a href="#" id="link2" onclick="loadForm('2')">Add transactions</a></li>
+          <li><a href="#" id="link3" onclick="loadForm('3')">Set Goals</a></li>
+          <li><a href="#" id="link4" onclick="loadForm('4')">Set alerts</a></li>
         </ul>
       </nav>
     </div>
@@ -52,21 +73,17 @@
   </span>
 </div>
 
+<?php
+  if(isset($_SESSION['load'])){
+    echo "<script type='text/javascript'>",
+          "loadForm();",
+          "</script>";
+  }
+  unset($_SESSION['load']);
+?>
 
 <script type="text/javascript">
       document.getElementById("logout").onclick = function () {
       location.href = "logout.php";
   };
-</script>
-
-
-<script type="text/javascript">
-  $("#link1").click(function(){
-  $("#content1").load("userFunctionalityPages/addIncomeSrcs.php #abcd");
-  $("#here").load("userFunctionalityPages/addIncomeSrcs.php #defg");
-  // location.reload();
-  });
-  $("#link3").click(function(){
-  $("#here").load("userFunctionalityPages/setGoals.php");
-  });
 </script>

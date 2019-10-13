@@ -57,12 +57,13 @@
 
   $sql = "INSERT INTO income_srcs(name, recurrence, amount, user_id) VALUES('$name', '$recurrence', '$amount', '$user_id')";
   if ($conn->query($sql) === TRUE) {
-    $_SESSION['successMsg'] = "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
+      $_SESSION['successMsg'] = "New record created successfully";
+  } else {
+      echo "Error: " . $sql . "<br>" . $conn->error;
+  }
 
-$conn->close();
+  $conn->close();
+  $_SESSION['load'] = 'abcd';
   header("Location: ../userDashboard.php");
 
 ?>
