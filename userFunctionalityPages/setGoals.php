@@ -63,7 +63,7 @@
     <label for="goaltype">Goal Type</label>
 </div>
 <div class="col-75">
-<input type="text" name="goaltype" list="goaltype" />
+<input type="text" name="goaltype" list="goaltype" required/>
     <datalist id="goaltype">
       <option value="Emergency Fund">Emergency Fund</option>
       <option value="Paying Off Debt">Paying Off Debt</option>
@@ -84,7 +84,7 @@
     <!-- <small>Enter 0 for one-time income</small> -->
 </div>
 <div class="col-75">
-    <input type="date" name="startdate" placeholder="dd/mm/yy" class="input-side">
+    <input type="date" name="startdate" placeholder="dd/mm/yy" class="input-side" required>
 </div>
 </div>
 <div class="row">
@@ -93,7 +93,7 @@
     <!-- <small>Enter 0 for one-time income</small> -->
 </div>
 <div class="col-75">
-    <input type="date" min="2018-01-01" name="enddate" placeholder="dd/mm/yy" class="input-side">
+    <input type="date" min="2018-01-01" name="enddate" placeholder="dd/mm/yy" class="input-side" required>
 </div>
 </div>
 <div class="row">
@@ -101,11 +101,20 @@
     <label for="goalamount" class="side-label">Goal Amount:</label>
 </div>
 <div class="col-75">
-    <input type="text" name="goalamount" class="input-side">
+    <input type="text" name="goalamount" class="input-side" required>
 </div>
 </div>
 <div style="width: 30px; margin: 0 auto;">
-  <button  class="button btnFade btnBlueGreen" type="submit" name="button">Submit</button>
+  <table>
+    <tr>
+      <td>
+          <button  class="button btnFade btnBlueGreen" type="submit" name="delete">Submit</button>
+      </td>
+      <td>
+          <button  class="button btnFade btnBlueGreen" type="reset" name="reset">Reset</button>
+      </td>
+  </table>
+</tr>
 </div>
 </form>
 <!-- delete a previous goals -->
@@ -116,7 +125,7 @@
     <label for="goaltype">Goal Type</label>
 </div>
 <div class="col-75">
-<input type="text" name="goaltype" list="goaltype" />
+<input type="text" name="goaltype" list="goaltype" required/>
     <datalist id="goaltype">
       <option value="Emergency Fund">Emergency Fund</option>
       <option value="Paying Off Debt">Paying Off Debt</option>
@@ -132,6 +141,15 @@
   </div>
 </div>
 <div style="width: 30px; margin: 0 auto;">
-  <button  class="button btnFade btnBlueGreen" type="submit" name="delete">Delete</button>
+  <table>
+    <tr>
+      <td>
+          <button  class="button btnFade btnBlueGreen" type="submit" name="delete">Delete</button>
+      </td>
+      <td>
+          <button  class="button btnFade btnBlueGreen" type="reset" name="reset">Reset</button>
+      </td>
+  </table>
+</tr>
 </div>
 </form>

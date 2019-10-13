@@ -19,7 +19,7 @@ div.topnavbar ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #17202A;
 }
 
 div.topnavbar li {
@@ -62,8 +62,8 @@ div.sidenavbar ul {
   position: absolute;
   float: left;
   height: 100%;
-  overflow: auto;
-  background-color: #f1f1f1;
+  overflow:hidden;
+  background-color: #00cccc;
 }
 
 div.sidenavbar li a {
@@ -75,7 +75,7 @@ div.sidenavbar li a {
 
 /* Change the link color on hover */
 div.sidenavbar li a:hover {
-  background-color: #555;
+  background-color: #17202A;
   color: white;
 }
 
@@ -107,19 +107,20 @@ body {
 }
 
 .btnBlueGreen {
-  background: #00AE68;
+  background: #006666;
 }
 
 .btnFade.btnBlueGreen:hover {
-  background: #21825B;
+  background: #006666;
 }
 
 .main-content {
   width: 100%;
+  background-color: #006666;
 }
 
 .form-group {
-  background-color: #f2f2f2;
+  background-color: #00cccc;
   margin: 20px;
   padding: 25px;
   display: block;
@@ -143,7 +144,7 @@ label {
 
 .form-group-side {
   position: relative;
-  background-color: #f2f2f2;
+  background-color: #00cccc;
   margin: 0;
   width: auto;
   height: 800px;
@@ -203,10 +204,10 @@ span.error {
 .card {
   display: block;
   position: absolute;
-  left: 20%;
+  left: 15%;
   margin-left: 50px;
   padding: 20px;
-  background: #fff;
+  background: #008080;
   width:40%;
   border-radius: 20px;
 }
@@ -226,7 +227,7 @@ span.error {
   padding: 8px;
 }
 
-.table tr:nth-child(even){background-color: #f2f2f2;}
+.table tr:nth-child(even){background-color: #00cccc;}
 
 .table tr:hover {background-color: #ddd;}
 
@@ -234,6 +235,13 @@ span.error {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #4CAF50;
+  background-color: #17202A;
   color: white;
+}
+footer{
+  margin-top: 150px;
+  padding:20px;
+  color:#ffffff;
+  background-color:#006666;
+  text-align: center;
 }

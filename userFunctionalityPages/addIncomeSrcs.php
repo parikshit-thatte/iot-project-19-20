@@ -65,7 +65,8 @@
   </div>
   <div class="row">
     <div class="col-25">
-        <label for="recurrence" class="side-label">Recurrence :</label>
+        <!-- <label for="recurrence" class="side-label">Recurrence :</label> -->
+        Recurrence:
         <!-- <small>Enter 0 for one-time income</small> -->
     </div>
     <div class="col-75">
