@@ -17,8 +17,9 @@
         </div>
         <nav>
           <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="landingPage.php">Home</a></li>
             <li><a href="about.html">About</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="loginPage.php">Login</a></li>
             <li><a href="registerPage.php">Signup</a></li>
@@ -29,6 +30,7 @@
 
     <section id="showcase">
       <div class="container">
+        <a ><img  src="logo-3.png" alt="ExpenseAnalyzer" width="80" height="80" vspace="20"></a>
         <h1>Ready For Tomorrow? Make A Sense Of It With <span style="color:#ffcc00;">Expense</span><span style="color:#009999;">Analyzer</span>!!</h1>
         <h3>Manage Income and Expenses - Automatic Bill Reminders - Reports - Privacy</h3>
       </div>
