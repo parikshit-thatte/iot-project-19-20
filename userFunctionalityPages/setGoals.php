@@ -18,12 +18,12 @@
   $r = $result->fetch_array();
   $user_id = $r['id'];
 
-  $sql2 = "SELECT * FROM goals WHERE user_id='$user_id'";
+  $sql2 = "SELECT * FROM goals1 WHERE user_id='$user_id'";
   $result2 = $conn->query($sql2);
 
   $goalamount = 0;
   foreach ($result2 as $res) {
-    $goalamount += $res['amount'] ;
+    $goalamount += $res['goalamount'] ;
   }
   $conn->close();
 ?>
@@ -41,16 +41,16 @@
       <?php foreach ($result2 as $res) { ?>
         <tr>
         <td>
-          <?php echo $res['name']; ?>
+          <?php echo $res['goaltype']; ?>
         </td>
         <td>
-          <?php echo $res['start_date']; ?>
+          <?php echo $res['startdate']; ?>
         </td>
         <td>
           <?php echo $res['enddate']; ?>
         </td>
         <td>
-          <?php echo $res['amount']; ?>
+          <?php echo $res['goalamount']; ?>
         </td>
       </tr>
       <?php } ?>
