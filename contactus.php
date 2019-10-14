@@ -19,14 +19,14 @@ use PHPMailer\PHPMailer\PHPMailer;
       $mail->isSMTP();
       $mail->HOST = "smtp.gmail.com";
       $mail->SMTPAuth = true;
-      $mail->Username = "";
-      $mail->Password="";
+      $mail->Username = "youremail@gmail.com";
+      $mail->Password="password";
       $mail->Port=587;
       $mail->SMTPSecure ="tls";
       $mail->Host = 'tls://smtp.gmail.com:587';
       $mail->isHTML(true);
       $mail->setFrom($email,$name);
-      $mail->addAddress("shindetejas15081999@gmail.com");
+      $mail->addAddress("receiversemail@gmail.com");
       $mail->Subject=$subject;
       $mail->Body = $body;
 
