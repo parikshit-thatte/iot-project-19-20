@@ -14,6 +14,7 @@
     }
     else if (key == '2'){
       $("#content1").load("userFunctionalityPages/addTransactions.php #abcd");
+      $("#here").empty();
     }
     else if (key == '3'){
       $("#content1").load("userFunctionalityPages/setGoals.php #abcd");
@@ -26,10 +27,12 @@
   }
   function loadTHistory(){
     $("#content1").load("userFunctionalityPages/transactionHistory.php #abcd");
+    $("#here").empty();
   }
 
   function loadPieChart(){
     $("#content1").load("userFunctionalityPages/analyzeExpenseForm.php #form");
+    $("#here").empty();
   }
 </script>
 
@@ -38,11 +41,10 @@
     <ul>
       <li><a href="<?php echo $dest ?>"><img src="logo-3.png" alt="ExpenseAnalyzer" width="50" height="50"></a></li>
       <div style="float:right;padding-right:20px;padding-top:20px;">
-        <li><a id="link4" onclick="loadTHistory()">Transaction History</a></li>
-        <li><a id="link4" onclick="loadPieChart()">Analyze Your Expenses</a></li>
+        <li><a href="#" id="link4" onclick="loadTHistory()">Transaction History</a></li>
+        <li><a href="#" id="link4" onclick="loadPieChart()">Analyze Your Expenses</a></li>
         <li><a href="#" id="link4">Graphs and Charts</a></li>
-        <li><a href="contactus.html">Contact us</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="#" id="link4">Trending Investments</a></li>
         <li><button class="button btnFade btnBlueGreen" id="logout"><i class="fa fa-sign-out" aria-hidden="true">Log Out</button></i></li>
       </div>
     </ul>
@@ -81,7 +83,7 @@
 <?php
   if(isset($_SESSION['load'])){
     echo "<script type='text/javascript'>",
-          "loadForm();",
+          "loadForm(1);",
           "</script>";
   }
   unset($_SESSION['load']);

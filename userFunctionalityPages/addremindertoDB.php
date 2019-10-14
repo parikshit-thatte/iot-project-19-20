@@ -63,7 +63,7 @@
   $r = $result->fetch_array();
   $user_id = $r['id'];
 
-  $sql = "INSERT INTO alerts(reminder,recurrence,alertdate,alertamount,user_id) VALUES('$reminder','$recurrence','$alertdate','$alertamount','$user_id')";
+  $sql = "INSERT INTO alerts(user_id, a_description, date_time, recurrence, amount) VALUES('$user_id', '$reminder', '$alertdate', '$recurrence', '$alertamount')";
   if ($conn->query($sql) === TRUE) {
       $_SESSION['successMsg'] = "New record created successfully";
   } else {

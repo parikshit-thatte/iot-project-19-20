@@ -23,7 +23,7 @@
 
   $alertamount = 0;
   foreach ($result2 as $res) {
-    $alertamount += $res['alertamount'] ;
+    $alertamount += $res['amount'] ;
   }
   $conn->close();
 ?>
@@ -41,16 +41,16 @@
       <?php foreach ($result2 as $res) { ?>
         <tr>
         <td>
-          <?php echo $res['reminder']; ?>
+          <?php echo $res['a_description']; ?>
         </td>
         <td>
           <?php echo $res['recurrence']; ?>
         </td>
         <td>
-          <?php echo $res['alertdate']; ?>
+          <?php echo $res['date_time']; ?>
         </td>
         <td>
-          <?php echo $res['alertamount']; ?>
+          <?php echo $res['amount']; ?>
         </td>
       </tr>
       <?php } ?>

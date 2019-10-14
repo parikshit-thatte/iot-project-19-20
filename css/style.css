@@ -173,7 +173,7 @@ article#main-col{
   background: #008080;
   margin-top: 10px;
   margin-bottom: 170px;
-  color:white;
+  color:black;
   font-size: 20px;
   border-radius: 20px;
 }
@@ -184,10 +184,10 @@ article#main-col{
   width:1000px;
 }
 .contact input{
-  border:none;
-  background:none;
+  border:white;
+  /* background:none; */
   padding-bottom: 15px;
-  color:white;
+  color:black;
   font-size:18px;
   width:300px;
   float:left;

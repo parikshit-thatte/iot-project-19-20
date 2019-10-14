@@ -117,7 +117,7 @@ window.onload = function () {
 			text: "Category-wise expenditure"
 		},
 		legend: {
-			maxWidth: 1000,
+			maxWidth: 10000,
 			itemWidth: 120
 		},
 		data: [

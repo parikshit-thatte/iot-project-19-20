@@ -34,6 +34,9 @@
   ";
   $result4 = $conn->query($sql4);
 
+  $sql5 = "SELECT * from transactions WHERE user_id='$user_id' and type IN ('food', 'health', 'travel')";
+  $result5 = $conn->query($sql5);
+
   $conn->close();
 ?>
 
@@ -186,6 +189,39 @@
         </td>
         <td>
           <?php echo $res['t_description']; ?>
+        </td>
+      </tr>
+      <?php } ?>
+  </table>
+  <h2>Miscellaneous</h2>
+  <table class="table">
+    <tr>
+      <th>Transaction ID</th>
+      <th>Name</th>
+      <th>Amount</th>
+      <th>Paid To</th>
+      <th>Date time</th>
+      <th>Type</th>
+    </tr>
+      <?php foreach ($result5 as $res) { ?>
+        <tr>
+        <td>
+          <?php echo $res['id']; ?>
+        </td>
+        <td>
+          <?php echo $res['name']; ?>
+        </td>
+        <td>
+          <?php echo $res['amount']; ?>
+        </td>
+        <td>
+          <?php echo $res['paid_to']; ?>
+        </td>
+        <td>
+          <?php echo $res['date_time']; ?>
+        </td>
+        <td>
+          <?php echo $res['type']; ?>
         </td>
       </tr>
       <?php } ?>

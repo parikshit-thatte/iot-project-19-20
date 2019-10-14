@@ -34,6 +34,7 @@ div.topnavbar li a {
   text-align: center;
   padding: 20px 16px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 /* Change the link color to #111 (black) on hover */
@@ -208,7 +209,7 @@ span.error {
   margin-left: 50px;
   padding: 20px;
   background: #008080;
-  width:40%;
+  width:50%;
   border-radius: 20px;
 }
 

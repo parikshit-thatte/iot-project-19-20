@@ -13,8 +13,8 @@ if(isset($_POST['delete']))
     $connect = mysqli_connect($hostname, $username, $password, $databaseName);
 
     // mysql delete query
-    $query = "DELETE FROM `goals1` WHERE goaltype = '$goaltype'";
-    
+    $query = "DELETE FROM `goals` WHERE name = '$goaltype'";
+
     $result = mysqli_query($connect, $query);
 
     if($result)

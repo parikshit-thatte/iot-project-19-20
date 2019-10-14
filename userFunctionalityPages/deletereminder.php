@@ -13,7 +13,7 @@ if(isset($_POST['delete']))
     $connect = mysqli_connect($hostname, $username, $password, $databaseName);
 
     // mysql delete query
-    $query = "DELETE FROM `alerts` WHERE reminder = '$reminder'";
+    $query = "DELETE FROM `alerts` WHERE a_description = '$reminder'";
 
     $result = mysqli_query($connect, $query);
 

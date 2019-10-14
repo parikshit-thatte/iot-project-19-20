@@ -63,7 +63,7 @@
   $r = $result->fetch_array();
   $user_id = $r['id'];
 
-  $sql = "INSERT INTO goals1(goaltype,startdate,enddate,goalamount,user_id) VALUES('$goaltype','$startdate','$enddate','$goalamount','$user_id')";
+  $sql = "INSERT INTO goals(user_id, name, start_date, enddate, amount) VALUES('$user_id', '$goaltype','$startdate','$enddate','$goalamount')";
   if ($conn->query($sql) === TRUE) {
       $_SESSION['successMsg'] = "New record created successfully";
   } else {
