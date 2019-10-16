@@ -20,16 +20,14 @@
 
   $sql2 = "SELECT * FROM alerts WHERE user_id='$user_id'";
   $result2 = $conn->query($sql2);
-$sql3 ="SELECT alertdate FROM alerts WHERE reminder='House Rent'";
-  // $sql3 ="SELECT alertdate FROM alerts WHERE user_id='$user_id'";
+
+  $sql3 ="SELECT alertdate FROM alerts WHERE reminder='House Rent' and user_id=$user_id";
   $result3 = $conn->query($sql3);
 
+  $sql4="SELECT mailsent FROM alerts WHERE reminder='House Rent' and user_id=$user_id";
+  $result4=$conn->query($sql4);
+
   $date1 = date("Y-m-d");
-  // foreach ($result3 as $res1) {
-  //   echo $res1['alertdate'];
-  // }
-
-
   $alertamount = 0;
   foreach ($result2 as $res) {
     $alertamount += $res['alertamount'] ;
@@ -46,7 +44,6 @@ $sql3 ="SELECT alertdate FROM alerts WHERE reminder='House Rent'";
       <th>Recurrence</th>
       <th>Alert Date</th>
       <th>Amount(in ₹)</th>
-      <th>today date</th>
     </tr>
       <?php foreach ($result2 as $res) { ?>
         <tr>
@@ -62,27 +59,36 @@ $sql3 ="SELECT alertdate FROM alerts WHERE reminder='House Rent'";
         <td>
           <?php echo $res['alertamount']; ?>
         </td>
-        <td>
-          <?php echo $date1; ?>
-        </td>
       </tr>
       <?php } ?>
   </table>
   <span style="color:white;"><?php if(isset($_SESSION['successMsg4'])){ echo $_SESSION['successMsg4']; } ?></span>
-  <?php
+<?php
   foreach ($result3 as $res1) {
-    if (!strcmp($date1,$res1['alertdate'])){
-        echo $res1['alertdate'];
-
-        // echo '<script type="text/javascript">',
-        //       'sendEmails();',
-        //       '</script>';
-        // header("Location: sentreminder.php")
+    $result6=$res1['alertdate'];
+  }
+  foreach ($result4 as $res2) {
+    $result7=$res2['mailsent'];
+  }
+  $result8=strcmp($date1,$result6);
+  // echo "datecmp:".$result8."<br>";
+  // echo "mailsent:".$result7;
+    if (!$result8) {
+      if(!$result7){
+        echo $result6;
+        echo "mailsent:".$result7;
+        header('location: http://localhost/ip-project-19-20/userFunctionalityPages/sentreminder.php');
+        die;
+      }
+      else{
+        // echo $result6;
+        // echo "mailsent:".$result7;
+        // header('location: http://localhost/ip-project-19-20/userFunctionalityPages/sentreminder.php');
+        // die;
       }
     }
   ?>
 </div>
-
 <div id="defg">
   <form class="form form-group-side" style="height: auto;" action="<?php echo htmlspecialchars('userFunctionalityPages/addremindertoDB.php'); ?>" method="post">
   <h3>Set New Reminder</h3>
@@ -186,18 +192,3 @@ $sql3 ="SELECT alertdate FROM alerts WHERE reminder='House Rent'";
   </div>
   </form>
 </div>
-<script src="http://code.jquery.com/jquery-3.4.1.js"integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-<!-- <script type="text/javascript">
-        function sendEmails(){
-            $.ajax({
-              url:'userFunctionalityPages/sentreminder.php',
-              method:'post',
-              dataType:'json',
-              ,success:function(response){
-                  console.log(response);
-              }
-            })
-      }
-</script> -->
-<!--
-?> -->
