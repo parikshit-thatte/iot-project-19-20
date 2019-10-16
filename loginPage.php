@@ -5,7 +5,7 @@
   <nav>
     <ul>
       <li><a href="landingPage.php"><img src="logo-3.png" alt="ExpenseAnalyzer" width="35" height="35"></a></li>
-      <li><a href="contactus.html">Contact Us</a></li>
+      <li><a href="contactus.php">Contact Us</a></li>
       <li><a href="about.html">About</a></li>
       <li class="fl"><a href="registerPage.php">Register</a></li>
       <li class="fl"><a href="loginPage.php">Log in</a></li>
