@@ -51,6 +51,7 @@ header{
   color:#009999;
   padding-top:20px;
   min-height:70px;
+  height:20%;
   border-bottom:#009999 3px solid;
 }
 
@@ -157,6 +158,7 @@ aside#sidebar .quote input, aside#sidebar .quote textarea{
 article#main-col{
   float:left;
   width:30%;
+  height: 60%;
   margin-left: 20%;
   background:white;
   margin-top: 10px;
@@ -194,16 +196,52 @@ article#main-col{
   margin:5px;
   overflow:hidden;
 }
-.servicesimg{
+.serviceshead{
+  float:left;
+  height:100%;
+  width:30%;
+  background-color: grey;
   align-content: center;
-  margin-left: 200px;
+  /* padding-left: 30px; */
+  /* margin-left: 100px; */
+}
+.services1{
+  background-color: white;
+  align-content: center;
+  /* font-size: 10px; */
+  width: 200px;
+  margin-left:20%;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+
+}
+.features{
+  padding-left: 20px;
+  margin-left: 20px;
+  width: 100%;
+  font-size: 20px;
+}
+.feaureimg{
+  padding-left: 20px;
+  margin-left: 20px;
+  padding-top: 20px;
+  width: 100%;
+}
+.servicesdes{
+  /* margin-top: 150px; */
+  float:left;
+  height:100%;
+  width:70%;
+  /* background-color: grey; */
+  /* align-content: center; */
+  /* margin-left: 200px; */
 }
 .btn{
     align-items: center;
-		width:20%;
-    margin-left: 5%;
-		background:#34495E;
-		border:2px solid #34495E;
+		width:40%;
+    margin-left: 50%;
+		background:#00ffcc;
+		/* border:2px solid #34495E; */
 		color:green;
 		padding:5px;
 		font-size:20px;
@@ -214,6 +252,21 @@ article#main-col{
 .btn:hover {
 		background-color: #336699;
 }
+.btn1{
+  align-items: center;
+  width:40%;
+  margin-left: 50%;
+  background:#00ffcc;
+  /* border:2px solid #34495E; */
+  color:green;
+  padding:5px;
+  font-size:10px;
+  cursor:pointer;
+  margin:10px 0;
+  border-radius: 10px;
+}
+.btn1:hover {
+		background-color: #336699;
 article#main-col p{
   color:#34495E;
 }
@@ -227,10 +280,31 @@ ul#services li{
 }
 
 footer{
+  margin-top: 150px;
   padding:20px;
   color:#ffffff;
   background-color:#006666;
   text-align: center;
+}
+/* For desktop: */
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
 }
 
 /* Media Queries */

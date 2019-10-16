@@ -197,7 +197,11 @@ label.side-label {
     margin-top: 0;
   }
 }
-
+/* .content-1{
+  float:left;
+  height:100%;
+  width:50%;
+} */
 span.error {
   color: #ff0000;
 }
@@ -206,8 +210,8 @@ span.error {
   display: block;
   position: absolute;
   left: 15%;
-  margin-left: 50px;
-  padding: 20px;
+  /* margin-left: 50px; */
+  /* padding: 20px; */
   background: #008080;
   width:50%;
   border-radius: 20px;

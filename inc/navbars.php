@@ -66,7 +66,7 @@
   </span>
   <span>
       <div style="text-align: center;">
-        <div id="content1" style="display: block;">
+        <div class="content-1" id="content1" style="display: block;">
 
         </div>
       </div>
@@ -80,14 +80,14 @@
   </span>
 </div>
 
-<?php
-  if(isset($_SESSION['load'])){
-    echo "<script type='text/javascript'>",
-          "loadForm(1);",
-          "</script>";
-  }
-  unset($_SESSION['load']);
-?>
+<!-- <?php
+  // if(isset($_SESSION['load'])){
+  //   echo "<script type='text/javascript'>",
+  //         "loadForm(1);",
+  //         "</script>";
+  // }
+  // unset($_SESSION['load']);
+?> -->
 
 <script type="text/javascript">
       document.getElementById("logout").onclick = function () {

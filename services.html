@@ -3,8 +3,32 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     <title>ExpenseAnalyzer |Services</title>
     <link rel="stylesheet" href="./css/style.css">
+    <script>
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                $("#here").load("servicespreview/service1.html");
+              });
+            $("#btn2").click(function(){
+                $("#here").load("servicespreview/service2.html");
+            });
+            $("#btn3").click(function(){
+                $("#here").load("servicespreview/service3.html");
+            });
+            $("#btn4").click(function(){
+                $("#here").load("servicespreview/service4.html");
+            });
+            $("#btn5").click(function(){
+                $("#here").load("servicespreview/service5.html");
+            });
+            $("#btn6").click(function(){
+                $("#here").load("servicespreview/service6.html");
+            });
+        });
+    </script>
   </head>
   <body>
     <header>
@@ -30,19 +54,54 @@
     <section id="main">
       <div class="container1">
           <center><h1 class="page-title">Services</h1></center>
-          <div class="servicesimg">
-            <div class="">
-                <img src="imgaddincomrsoources.JPG" alt="Add Income Sources" width="800" height="800">
-            </div>
-            <div class="">
-                <img src="Imgcontactusform.JPG" alt="Add Income Sources" width="800" height="800">
-            </div>
-            <div class="">
-                <img src="imgsetgoal.JPG" alt="Add Income Sources" width="800" height="800">
-            </div>
-            <div class="">
-                <img src="imgsetalerts.JPG" alt="Add Income Sources" width="800" height="800">
-            </div>
+          <div class="col-1 serviceshead">
+              <div class=" services1">
+                <center><h3>Add Income Sources</h3></center>
+                <center><h5>Add all of your income <br>sources at one place</h5></center>
+                <center><button class="btn1" type="submit" id="btn1" name="button">Read more</button></center>
+                <!-- <li><a class="btn1" href="#" id="btn1">read more</a></li> -->
+              </div>
+              <div class="services1">
+                <center><h3>Add Transactions</h3></center>
+                <center><h5>Save Your transaction <br>deatils for reference</h5></center>
+                <center><button class="btn1" type="submit" id="btn2" name="button">Read more</button></center>
+              </div>
+              <div class="services1">
+                <center><h3>Set Goals</h3></center>
+                <center><h5>Set Your Financial Goal<br>and track it </h5></center>
+                <center><button class="btn1" type="submit" id="btn3" name="button">Read more</button></center>
+              </div>
+              <div class="services1">
+                <center><h3>Set Reminders</h3></center>
+                <center><h5>Set Reminders of Bill/fees<br>paymentsand get alerts</h5></center>
+                <center><button class="btn1" type="submit" id="btn4" name="button">Read more</button></center>
+              </div>
+              <div class="services1">
+                <center><h3>Tranasction History</h3></center>
+                <center><h5>you can view all your past<br>transaction at one place<br>with different categories</h5></center>
+                <center><button class="btn1" type="submit" id="btn5" name="button">Read more</button></center>
+              </div>
+              <div class="services1">
+                <center><h3>Analyze Spendings</h3></center>
+                <center><h5>Graphical view of your Spendings<br>to get a better idea of saving</h5></center>
+                <center><button class="btn1" type="submit" id="btn6" name="button">Read more</button></center>
+              </div>
+          </div>
+          <div class="col-5 servicesdes">
+              <div id="here" style="display: block;">
+                <h1>Add Income Sources</h1>
+                <h2>Features</h2>
+                <div class="features">
+                  <ul>
+                    <li>Update your Income at any point of time</li>
+                    <li>View Youur Previously Added Incomes</li>
+                    <li>Allow for you to split your income into multiple<br> categories so you can track the impact<br> of taxes and withholdings.</li>
+                  </ul>
+                </div>
+                <div class="featureimg">
+                  <center><h1><img src="incomesourceimg.JPG" alt="add income Sources screenshot" width="700" height="500"></h1></center>
+                </div>
+              </div>
           </div>
       </div>
     </section>

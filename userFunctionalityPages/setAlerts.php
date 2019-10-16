@@ -55,6 +55,7 @@
       </tr>
       <?php } ?>
   </table>
+  <span style="color:white;"><?php if(isset($_SESSION['successMsg4'])){ echo $_SESSION['successMsg4']; } ?></span>
 </div>
 <form class="form" action="<?php echo htmlspecialchars('userFunctionalityPages/addremindertoDB.php'); ?>" method="post" id="defg">
 <h3>Set New Reminder</h3>

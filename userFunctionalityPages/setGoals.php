@@ -1,3 +1,4 @@
+
 <?php
   session_start();
 
@@ -55,6 +56,7 @@
       </tr>
       <?php } ?>
   </table>
+  <span style="color:white;"><?php if(isset($_SESSION['successMsg'])){ echo $_SESSION['successMsg']; } ?></span>
 </div>
 <form class="form" action="<?php echo htmlspecialchars('userFunctionalityPages/AddgoaltoDB.php'); ?>" method="post" id="defg">
 <h3>Set New Goal</h3>
@@ -108,18 +110,18 @@
   <table>
     <tr>
       <td>
-          <button  class="button btnFade btnBlueGreen" type="submit" name="delete">Submit</button>
+          <button  class="button btnFade btnBlueGreen" type="submit" name="submit">Submit</button>
       </td>
       <td>
           <button  class="button btnFade btnBlueGreen" type="reset" name="reset">Reset</button>
       </td>
+    </tr>
   </table>
-</tr>
 </div>
 </form>
 <!-- delete a previous goals -->
 <form class="form" action="<?php echo htmlspecialchars('userFunctionalityPages/deletepreviousgoals.php'); ?>" method="post" id="defg">
-<h3>Delete Previous Goals Recods</h3>
+<h3>Delete goals</h3>
 <div class="row">
 <div class="col-25">
     <label for="goaltype">Goal Type</label>

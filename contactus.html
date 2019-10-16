@@ -28,7 +28,7 @@
       </div>
     </header>
     <section id="main">
-      <div class="container1">
+      <div class="col-1 container1">
           <center><h1 class="page-title">CONTACT US</h1></center>
           <div class="contact">
               <form class="" action="contactus.php" method="post">
@@ -71,19 +71,12 @@
                                 Message:
                             </td>
                             <td>
-                              <textarea id="body" name="body" rows="4" cols="30"></textarea>
+                              <textarea id="body" placeholder="Type Your Message here"name="body" rows="4" cols="35"></textarea>
                             </td>
                         </tr>
-                    </table>
-                    <tr>
-                        <td>
-                            <button class="btn" type="Submit" name="submit" onclick="sendEmail()">Submit</button>
-                            <!-- <input class="btn" onclick="sendEmail()" type="Submit" name="" value="Submit"> -->
-                        </td>
-                        <td>
-                            <button class="btn" type="reset" name="reset">Reset</button>
-                        </td>
-                    </tr>
+                  </table>
+                        <button class="btn" type="submit" name="submit">Submit</button>
+                        <button class="btn" type="reset" name="reset">Reset</button>
               </form>
           </div>
           <script src="http://code.jquery.com/jquery-3.4.1.js"integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
