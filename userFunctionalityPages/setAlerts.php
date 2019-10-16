@@ -21,6 +21,16 @@
   $sql2 = "SELECT * FROM alerts WHERE user_id='$user_id'";
   $result2 = $conn->query($sql2);
 
+  $sql3 ="SELECT alertdate FROM alerts WHERE user_id='$user_id'";
+  $result3 = $conn->query($sql3);
+
+  $date1 = date("Y-m-d");
+  // echo strcmp($date1, $);
+  // foreach ($result3 as $res1) {
+  //   echo $res1['alertdate'];
+  // }
+
+
   $alertamount = 0;
   foreach ($result2 as $res) {
     $alertamount += $res['alertamount'] ;
@@ -37,6 +47,7 @@
       <th>Recurrence</th>
       <th>Alert Date</th>
       <th>Amount(in ₹)</th>
+      <th>today date</th>
     </tr>
       <?php foreach ($result2 as $res) { ?>
         <tr>
@@ -52,10 +63,16 @@
         <td>
           <?php echo $res['alertamount']; ?>
         </td>
+        <td>
+          <?php echo $date1; ?>
+        </td>
       </tr>
       <?php } ?>
   </table>
   <span style="color:white;"><?php if(isset($_SESSION['successMsg4'])){ echo $_SESSION['successMsg4']; } ?></span>
+  <?php  foreach ($result3 as $res1) {
+    echo $res1['alertdate'];
+  }?>
 </div>
 <form class="form" action="<?php echo htmlspecialchars('userFunctionalityPages/addremindertoDB.php'); ?>" method="post" id="defg">
 <h3>Set New Reminder</h3>
