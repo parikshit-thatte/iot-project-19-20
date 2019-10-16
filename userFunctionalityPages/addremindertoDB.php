@@ -65,7 +65,7 @@
 
   $sql = "INSERT INTO alerts(user_id, reminder,alertdate, recurrence, alertamount) VALUES('$user_id', '$reminder', '$alertdate', '$recurrence', '$alertamount')";
   if ($conn->query($sql) === TRUE) {
-      $_SESSION['successMsg'] = "New record created successfully";
+      $_SESSION['successMsg4'] = "New record created successfully";
   } else {
       echo "Error: " . $sql . "<br>" . $conn->error;
   }

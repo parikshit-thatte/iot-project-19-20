@@ -66,6 +66,7 @@
   $sql = "INSERT INTO goals1(user_id, goaltype, startdate, enddate, goalamount) VALUES('$user_id', '$goaltype','$startdate','$enddate','$goalamount')";
   if ($conn->query($sql) === TRUE) {
       $_SESSION['successMsg'] = "New record created successfully";
+      $successmessage="New record created successfully";
   } else {
       echo "Error: " . $sql . "<br>" . $conn->error;
   }
