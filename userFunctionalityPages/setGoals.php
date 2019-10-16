@@ -38,6 +38,7 @@
       <th>Start Date</th>
       <th>End Date</th>
       <th>Goal Amount(in ₹)</th>
+      <th>Investment/month</th>
     </tr>
       <?php foreach ($result2 as $res) { ?>
         <tr>
@@ -52,6 +53,9 @@
         </td>
         <td>
           <?php echo $res['goalamount']; ?>
+        </td>
+        <td>
+          <?php echo $res['ginvestpmonth']; ?>
         </td>
       </tr>
       <?php } ?>
@@ -104,6 +108,14 @@
 </div>
 <div class="col-75">
     <input type="text" name="goalamount" class="input-side" required>
+</div>
+</div>
+<div class="row">
+<div class="col-25">
+    <label for="ginvestpmonth" class="side-label">Investment/Month:</label>
+</div>
+<div class="col-75">
+    <input type="text" name="ginvestpmonth" class="input-side" required>
 </div>
 </div>
 <div style="width: 30px; margin: 0 auto;">

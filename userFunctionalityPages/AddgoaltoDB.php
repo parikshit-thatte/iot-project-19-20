@@ -1,6 +1,6 @@
 <?php
   session_start();
-  $goaltype = $startdate = $enddate = $goalamount = $user_id = "";
+  $goaltype = $startdate = $enddate = $goalamount = $ginvestpmonth=$user_id = "";
   if ($_SERVER["REQUEST_METHOD"] == "POST"){
     if (empty($_POST["goaltype"]))
     {
@@ -36,6 +36,14 @@
     {
       $goalamount = test_input($_POST["goalamount"]);
     }
+    if (empty($_POST["ginvestpmonth"]))
+    {
+      $_SESSION["ginvestamtErr"] = "* Goal Invest is required";
+    }
+    else
+    {
+      $ginvestpmonth = test_input($_POST["ginvestpmonth"]);
+    }
   }
 
   function test_input($data)
@@ -63,7 +71,7 @@
   $r = $result->fetch_array();
   $user_id = $r['id'];
 
-  $sql = "INSERT INTO goals1(user_id, goaltype, startdate, enddate, goalamount) VALUES('$user_id', '$goaltype','$startdate','$enddate','$goalamount')";
+  $sql = "INSERT INTO goals1(user_id, goaltype, startdate, enddate, goalamount,ginvestpmonth) VALUES('$user_id', '$goaltype','$startdate','$enddate','$goalamount','$ginvestpmonth')";
   if ($conn->query($sql) === TRUE) {
       $_SESSION['successMsg'] = "New record created successfully";
       $successmessage="New record created successfully";
@@ -72,7 +80,7 @@
   }
 
   $conn->close();
-  $_SESSION['load'] = 'abcd';
-  header("Location: ../userDashboard.php");
+  // $_SESSION['load'] = 'abcd';
+  // header("Location: ../userDashboard.php");
 
 ?>
