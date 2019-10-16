@@ -1,4 +1,5 @@
 <?php include 'inc\base.php' ?>
+<?php session_start(); ?>
 <div class="topnavbar">
   <nav>
     <ul>
@@ -16,6 +17,7 @@
 <div style="text-align: center;">
   <div class="form-group">
     <form class="" action="<?php echo htmlspecialchars('registerUser.php') ?>" method="post">
+      <span style="color:yellow; padding-bottom: :50px;"><?php if(isset($_SESSION['usernameErr'])){ echo $_SESSION['usernameErr']; } ?></span>
       <div class="row">
         <div class="col-25">
             <label for="name">Full name :</label>

@@ -6,6 +6,34 @@
     $dest = 'landingPage.php';
   }
 ?>
+
+<?php
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "ip-project";
+
+  // Create connection
+  $conn = new mysqli($servername, $username, $password, $dbname);
+  // Check connection
+  if ($conn->connect_error) {
+      die("Connection failed: ".$conn->connect_error);
+  }
+  $username = $_SESSION['currentUser'];
+  $sql = "select id from users where username='$username'";
+  $result = $conn->query($sql);
+  $r = $result->fetch_array();
+  $user_id = $r['id'];
+
+  $sql2 = "SELECT * FROM income_srcs WHERE user_id='$user_id'";
+  $result2 = $conn->query($sql2);
+
+  $monthly_inc = 0;
+  foreach ($result2 as $res) {
+    $monthly_inc += $res['amount']/$res['recurrence'] ;
+  }
+  $conn->close();
+?>
 <script type="text/javascript">
   function loadForm(key){
     if(key == '1'){
@@ -32,6 +60,10 @@
 
   function loadPieChart(){
     $("#content1").load("userFunctionalityPages/analyzeExpenseForm.php #form");
+    $("#here").empty();
+  }
+  function loadRealPie(){
+    $("#content1").load("userFunctionalityPages/piechart.php");
     $("#here").empty();
   }
 </script>
@@ -67,27 +99,34 @@
   <span>
       <div style="text-align: center;">
         <div class="content-1" id="content1" style="display: block;">
+            <div class="card shadow1">
+                <h2>Current monthly income</h2>
+                <h4><strong><?php echo $monthly_inc ?></strong></h4>
+                <h2>Today's Expenses</h2>
+                <h4><strong><?php echo "" ?></strong></h4>
+            </div>
 
         </div>
       </div>
   </span>
   <span>
     <aside>
-      <div id="here" class="form-group-side" >
+      <div id="here">
 
       </div>
     </aside>
   </span>
 </div>
 
-<!-- <?php
-  // if(isset($_SESSION['load'])){
-  //   echo "<script type='text/javascript'>",
-  //         "loadForm(1);",
-  //         "</script>";
-  // }
-  // unset($_SESSION['load']);
-?> -->
+<?php
+  if(isset($_SESSION['load'])){
+
+    echo "<script type='text/javascript'>",
+          "loadForm(1);",
+          "</script>";
+  }
+  unset($_SESSION['load']);
+?>
 
 <script type="text/javascript">
       document.getElementById("logout").onclick = function () {

@@ -25,7 +25,7 @@
       <div class="col-25">
         <label for="year">Year :</label>
       </div>
-      <div class="col-75">
+      <div class="col-75" id="yearDD">
         <input type="text" name="year">
       </div>
     </div>
@@ -34,3 +34,16 @@
     </div>
   </form>
 </div>
+<!-- <script type="text/javascript">
+
+    var selectEle = document.createElement("select");
+    for (var i = 1960; i < 2010; i ++) {
+      var option = document.createElement("option");
+      option.text = i;
+      option.value = i;
+      selectEle.appendChild(option);
+    }
+
+    document.getElementById("yearDD").appendChild("selectEle");
+</script> -->
+<?php echo "string"; ?>

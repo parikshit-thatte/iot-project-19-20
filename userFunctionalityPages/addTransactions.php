@@ -1,5 +1,5 @@
 <form class="form-group" action="<?php echo htmlspecialchars('userFunctionalityPages/addTransactionToDB.php'); ?>" method="post" id="abcd">
-  <h3>Add a new transaction</h3>
+  <h3>Add a new expense</h3>
   <div class="row">
     <div class="col-25">
         <label for="name" class="">Name :</label>

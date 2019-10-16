@@ -50,10 +50,10 @@
         </td>
       </tr>
       <?php } ?>
-  </table>
+    </table>
 </div>
 
-<form class="form" action="<?php echo htmlspecialchars('userFunctionalityPages/addIncomeToDB.php'); ?>" method="post" id="defg">
+<form class="form-group-side form" action="<?php echo htmlspecialchars('userFunctionalityPages/addIncomeToDB.php'); ?>" method="post" id="defg">
   <h3>Add a new income source</h3>
   <div class="row">
     <div class="col-25">

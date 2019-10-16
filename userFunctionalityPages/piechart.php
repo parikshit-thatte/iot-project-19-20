@@ -143,7 +143,7 @@ window.onload = function () {
 </script>
 <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </head>
-<body>
+<body style="width: 500px; height:500px;">
 <div id="chartContainer" style="height: 300px; width: 100%;"></div>
 </body>
 </html>

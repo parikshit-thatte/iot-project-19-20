@@ -69,9 +69,13 @@
       die("Connection failed: " . $conn->connect_error);
   }
 
-  $sql = "INSERT INTO users(name, username, email, password, role_id) VALUES ('$name', '$uname', '$email', '$pwd1', 1)";
-  $conn->query($sql);
-  header("Location: loginPage.php");
-  $_SESSION['successMsg'] = "Registered successfully!"
-
+  $sql = "INSERT INTO users(name, username, email, password, role_id) VALUES ('$name', '$uname', '$email', '$pwd1', 2)";
+  if($conn->query($sql) === TRUE){
+    header("Location: loginPage.php");
+    $_SESSION['successMsg'] = "Registered successfully!";
+  }
+  else{
+    header("Location: registerPage.php");
+    $_SESSION['usernameErr'] = "Username not available! Please choose another username";
+  }
 ?>

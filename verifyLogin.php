@@ -7,6 +7,7 @@
     if (empty($_POST["username"]))
     {
       $_SESSION["nameErr"] = "* Username is required";
+      header("Location: loginPage.php");
     }
     else
     {
@@ -16,6 +17,7 @@
     if (empty($_POST["pwd"]))
     {
         $_SESSION['pwdErr'] = "* Password is required";
+        header("Location: loginPage.php");
     }
     else
     {
@@ -43,13 +45,18 @@
       die("Connection failed: " . $conn->connect_error);
   }
 
-  $sql = "SELECT password FROM users WHERE username = '$name'";
+  $sql = "SELECT password, role_id FROM users WHERE username = '$name'";
   $result = $conn->query($sql);
   $r = $result->fetch_array();
   if($r['password'] === $pwd)
   {
     $_SESSION['currentUser'] = $name;
-    header("Location: userDashboard.php");
+    if($r['role_id'] == 1){
+      header("Location: adminDashboard.php");
+    }
+    else if($r['role_id' == 2]) {
+      header("Location: userDashboard.php");
+    }
   }
   else {
     $_SESSION['loginErr'] = "* Username or password is incorrect!";

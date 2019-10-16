@@ -17,7 +17,7 @@
 </div>
 <div style="text-align: center;">
   <div class="form-group">
-    <span style="color:red;"><?php if(isset($_SESSION["loginErr"])){echo $_SESSION["loginErr"];}?></span>
+    <span style="color:red;"><?php if(isset($_SESSION["loginErr"])){echo $_SESSION["loginErr"];} unset($_SESSION['loginErr']);?></span>
     <span style="color:red;"><?php if(isset($_SESSION['unauthorisedAccess'])){echo $_SESSION["unauthorisedAccess"];}?></span>
     <span style="color:green;"><?php if(isset($_SESSION['successMsg'])){ echo $_SESSION['successMsg']; } ?></span>
     <form action="<?php echo htmlspecialchars('verifyLogin.php') ?>" method="POST">

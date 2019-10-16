@@ -10,3 +10,4 @@
 
 <?php include 'inc\base.php' ?>
   <?php include 'inc\navbars.php' ?>
+<?php include 'inc\footer.php' ?>
