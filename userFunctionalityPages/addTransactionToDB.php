@@ -27,7 +27,7 @@
 
       $sql = "INSERT INTO transactions(user_id, name, amount, paid_to, date_time, type) VALUES('$user_id', '$name', '$amount', '$paid_to', '$date', '$type')";
       if ($conn->query($sql) === TRUE) {
-          $_SESSION['successMsg'] = "New record created successfully";
+          $_SESSION['successMsg1'] = "New Transaction: ".$name." added successfully";
       } else {
           echo "Error: " . $sql . "<br>" . $conn->error;
       }

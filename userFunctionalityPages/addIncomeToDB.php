@@ -57,7 +57,7 @@
 
   $sql = "INSERT INTO income_srcs(name, recurrence, amount, user_id) VALUES('$name', '$recurrence', '$amount', '$user_id')";
   if ($conn->query($sql) === TRUE) {
-      $_SESSION['successMsg'] = "New record created successfully";
+      $_SESSION['successMsg1'] = "New Income Source: ".$name." added successfully";
   } else {
       echo "Error: " . $sql . "<br>" . $conn->error;
   }
