@@ -104,6 +104,7 @@
   foreach ($result4 as $res2) {
     $result7=$res2['mailsent'];
   }
+  if(!empty($result6)){
   $result8=strcmp($date1,$result6);
   // echo "datecmp:".$result8."<br>";
   // echo "mailsent:".$result7;
@@ -121,6 +122,7 @@
         // die;
       }
     }
+  }
   ?>
 </div>
 <div id="defg">
