@@ -51,6 +51,7 @@
       </tr>
       <?php } ?>
     </table>
+    <span style="color:white;"><?php if(isset($_SESSION['successMsg1'])){ echo $_SESSION['successMsg1'];unset($_SESSION['successMsg1']); } ?></span>
 </div>
 
 <form class="form-group-side form" action="<?php echo htmlspecialchars('userFunctionalityPages/addIncomeToDB.php'); ?>" method="post" id="defg">

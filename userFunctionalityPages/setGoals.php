@@ -59,7 +59,7 @@
       </tr>
       <?php } ?>
   </table>
-  <span style="color:white;"><?php if(isset($_SESSION['successMsg'])){ echo $_SESSION['successMsg']; } ?></span>
+  <span style="color:white;"><?php if(isset($_SESSION['successMsg1'])){ echo $_SESSION['successMsg1']; } ?></span>
 </div>
 <div id="defg">
   <form class="form form-group-side" style="height: auto;" action="<?php echo htmlspecialchars('userFunctionalityPages/AddgoaltoDB.php'); ?>" method="post">

@@ -1,4 +1,5 @@
 <?php
+session_start();
 if(isset($_POST['delete']))
 {
     $hostname = "localhost";
@@ -15,8 +16,11 @@ if(isset($_POST['delete']))
     // mysql delete query
     $query = "DELETE FROM `goals1` WHERE goaltype = '$goaltype'";
 
-    $result = mysqli_query($connect, $query);
+    // $result = mysqli_query($connect, $query);
+    if ($connect->query($query) === TRUE) {
+        $_SESSION['successMsg1'] = "Goal ".$goaltype." Deleted successfully";
 
+    }
     if($result)
     {
         echo 'Data Deleted';

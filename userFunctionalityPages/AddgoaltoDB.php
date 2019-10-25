@@ -72,15 +72,20 @@
   $user_id = $r['id'];
 
   $sql = "INSERT INTO goals1(user_id, goaltype, startdate, enddate, goalamount,ginvestpmonth) VALUES('$user_id', '$goaltype','$startdate','$enddate','$goalamount','$ginvestpmonth')";
+
   if ($conn->query($sql) === TRUE) {
-      $_SESSION['successMsg'] = "New record created successfully";
-      $successmessage="New record created successfully";
+      $_SESSION['successMsg1'] = "New Goal ".$goaltype." created successfully";
+
   } else {
       echo "Error: " . $sql . "<br>" . $conn->error;
   }
-
+  // $sql1 = "INSERT INTO transactions(user_id, name, amount, paid_to, date_time, type) VALUES('$user_id', '$goaltype', '$ginvestpmonth', 'self', '$startdate', 'savings')";
+  // if ($conn->query($sql1) === TRUE) {
+  //     $_SESSION['successMsg'] = "New record 1 created successfully";
+  //     $successmessage="New record 1created successfully";
+  // }
   $conn->close();
-  // $_SESSION['load'] = 'abcd';
-  // header("Location: ../userDashboard.php");
+  $_SESSION['load'] = 'abcd';
+  header("Location: ../userDashboard.php");
 
 ?>

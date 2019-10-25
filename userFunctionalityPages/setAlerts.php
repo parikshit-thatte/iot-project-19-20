@@ -23,9 +23,43 @@
 
   $sql3 ="SELECT alertdate FROM alerts WHERE reminder='House Rent' and user_id=$user_id";
   $result3 = $conn->query($sql3);
+  // $sql3 ="SELECT alertdate FROM alerts WHERE reminder='Water Bill' and user_id=$user_id";
+  // $result3 = $conn->query($sql3);
+  // $sql3 ="SELECT alertdate FROM alerts WHERE reminder='Mahanagar Gas Bill' and user_id=$user_id";
+  // $result3 = $conn->query($sql3);
+  // $sql3 ="SELECT alertdate FROM alerts WHERE reminder='Classes Fee Payment' and user_id=$user_id";
+  // $result3 = $conn->query($sql3);
+  // $sql3 ="SELECT alertdate FROM alerts WHERE reminder='Mobile Recharge Bill' and user_id=$user_id";
+  // $result3 = $conn->query($sql3);
+  // $sql3 ="SELECT alertdate FROM alerts WHERE reminder='Internet Connection' and user_id=$user_id";
+  // $result3 = $conn->query($sql3);
+  // $sql3 ="SELECT alertdate FROM alerts WHERE reminder='TV Channel Subscriptions' and user_id=$user_id";
+  // $result3 = $conn->query($sql3);
+  // $sql3 ="SELECT alertdate FROM alerts WHERE reminder='Netflix Subscriptions' and user_id=$user_id";
+  // $result3 = $conn->query($sql3);
+  // $sql3 ="SELECT alertdate FROM alerts WHERE reminder='Amazon Prime Membership' and user_id=$user_id";
+  // $result3 = $conn->query($sql3)
 
   $sql4="SELECT mailsent FROM alerts WHERE reminder='House Rent' and user_id=$user_id";
   $result4=$conn->query($sql4);
+  // $sql4="SELECT mailsent FROM alerts WHERE reminder='Water Bill' and user_id=$user_id";
+  // $result4=$conn->query($sql4);
+  // $sql4="SELECT mailsent FROM alerts WHERE reminder='Mahanagar Gas Bill' and user_id=$user_id";
+  // $result4=$conn->query($sql4);
+  // $sql4="SELECT mailsent FROM alerts WHERE reminder='Classes Fee Payment' and user_id=$user_id";
+  // $result4=$conn->query($sql4);
+  // $sql4="SELECT mailsent FROM alerts WHERE reminder='Mobile Recharge Bill' and user_id=$user_id";
+  // $result4=$conn->query($sql4);
+  // $sql4="SELECT mailsent FROM alerts WHERE reminder='Internet Connection' and user_id=$user_id";
+  // $result4=$conn->query($sql4);
+  // $sql4="SELECT mailsent FROM alerts WHERE reminder='TV Channel Subscriptions' and user_id=$user_id";
+  // $result4=$conn->query($sql4);
+  // $sql4="SELECT mailsent FROM alerts WHERE reminder='Netflix Subscriptions' and user_id=$user_id";
+  // $result4=$conn->query($sql4);
+  // $sql4="SELECT mailsent FROM alerts WHERE reminder='Amazon Prime Membership' and user_id=$user_id";
+  // $result4=$conn->query($sql4);
+
+
 
   $date1 = date("Y-m-d");
   $alertamount = 0;
@@ -62,10 +96,10 @@
       </tr>
       <?php } ?>
   </table>
-  <span style="color:white;"><?php if(isset($_SESSION['successMsg4'])){ echo $_SESSION['successMsg4']; } ?></span>
 <?php
   foreach ($result3 as $res1) {
     $result6=$res1['alertdate'];
+
   }
   foreach ($result4 as $res2) {
     $result7=$res2['mailsent'];
