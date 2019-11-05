@@ -24,13 +24,13 @@ $result = $conn->query($sql);
     </tr>
       <?php while($row = $result->fetch_assoc()) { ?>
         <tr>
-        <td>
-          <?php echo $row['id']; ?>
-        </td>
-        <td>
-          <?php echo $row['username']; ?>
-        </td>
-      </tr>
+          <td>
+            <?php echo $row['id']; ?>
+          </td>
+          <td>
+            <?php echo $row['username']; ?>
+          </td>
+        </tr>
       <?php } ?>
     </table>
 <!-- </div>
