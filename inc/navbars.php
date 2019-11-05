@@ -19,7 +19,9 @@
   if ($conn->connect_error) {
       die("Connection failed: ".$conn->connect_error);
   }
+  if(isset($_SESSION['currentUser'])){
   $username = $_SESSION['currentUser'];
+  }
   $sql = "select id from users where username='$username'";
   $result = $conn->query($sql);
   $r = $result->fetch_array();
@@ -63,7 +65,12 @@
     $("#here").empty();
   }
   function loadRealPie(){
-    $("#content1").load("userFunctionalityPages/piechart.php");
+    $("#content1").load("piechart.php");
+    $("#here").empty();
+  }
+
+  function loadTrendings(){
+    $("#content1").load("userFunctionalityPages/viewTrendings.php #abcd");
     $("#here").empty();
   }
 </script>
@@ -76,7 +83,7 @@
         <li><a href="#" id="link4" onclick="loadTHistory()">Transaction History</a></li>
         <li><a href="#" id="link4" onclick="loadPieChart()">Analyze Your Expenses</a></li>
         <li><a href="#" id="link4">Graphs and Charts</a></li>
-        <li><a href="#" id="link4">Trending Investments</a></li>
+        <li><a href="#" id="link4" onclick="loadTrendings()">Trending Investments</a></li>
         <li><button class="button btnFade btnBlueGreen" id="logout"><i class="fa fa-sign-out" aria-hidden="true">Log Out</button></i></li>
       </div>
     </ul>
@@ -104,8 +111,13 @@
                 <h4><strong><?php echo $monthly_inc ?></strong></h4>
                 <h2>Today's Expenses</h2>
                 <h4><strong><?php echo "" ?></strong></h4>
-            </div>
+                <?php
+                if(isset($_SESSION['pieErr'])){
+                  echo "<h2 style='color: yellow;'>Data not found for analysis!</h2>";
 
+                }
+                ?>
+            </div>
         </div>
       </div>
   </span>
@@ -124,8 +136,8 @@
     echo "<script type='text/javascript'>",
           "loadForm(1);",
           "</script>";
+    unset($_SESSION['load']);
   }
-  unset($_SESSION['load']);
 ?>
 
 <script type="text/javascript">

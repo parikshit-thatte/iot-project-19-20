@@ -1,5 +1,5 @@
 <div id="form">
-  <form class="form-group" action="userFunctionalityPages/piechart.php" method="post">
+  <form class="form-group" action="piechart.php" method="post">
     <div class="row">
       <div class="col-25">
           <label for="month">Select month :</label>
