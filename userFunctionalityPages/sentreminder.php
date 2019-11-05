@@ -45,7 +45,7 @@
       $mail->HOST = "smtp.gmail.com";
       $mail->SMTPAuth = true;
       $mail->Username = "jokerhardy1234@gmail.com";
-      $mail->Password="JohnSaitama1599!!";
+      $mail->Password="GenosSteel1234@";
       $mail->Port=587;
       $mail->SMTPSecure ="tls";
       $mail->Host = 'tls://smtp.gmail.com:587';
@@ -60,11 +60,12 @@
         $response = "Email is send";
         $_SESSION['successMsg1'] = "Reminder Sent Successfully";
         header("Location: http://localhost/ip-project-19-20/userDashboard.php#");
+        // $_SESSION['load'] = 'abcd';
+        // header("Location: ../userDashboard.php");
         // header("Location: contactus.php");
       }
       else {
         $response = "something is wrong <br><br>".$mail->ErrorInfo;
       }
-      exit(json_encode(array("response"=>$response)));
 
 ?>
