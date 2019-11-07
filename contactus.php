@@ -80,7 +80,7 @@
                         <button class="btn" type="reset" name="reset">Reset</button>
               </form>
               <span style="color:white;"><?php if(isset($_SESSION['response'])){ echo $_SESSION['response'];} ?></span>
-              <span style="color:white;"><?php if(isset($_SESSION['successMsg'])){ echo $_SESSION['successMsg'];unset($_SESSION['successMsg']);} ?></span>
+              <span style="color:white;"><?php if(isset($_SESSION['successMsg3'])){ echo $_SESSION['successMsg'];unset($_SESSION['successMsg3']);} ?></span>
           </div>
           <script src="http://code.jquery.com/jquery-3.4.1.js"integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
           <script type="text/javascript">
@@ -119,7 +119,7 @@
     </section>
 
     <footer>
-      <p>ExpenseAnalyzer, Copyright &copy; 2019</p>
+      <p style="padding:20px;color:#ffffff;background-color:#006666;text-align: center;">ExpenseAnalyzer, Copyright &copy; 2019</p>
     </footer>
   </body>
 </html>

@@ -245,10 +245,15 @@ span.error {
   background-color: #17202A;
   color: white;
 }
+
 footer{
   margin-top: 150px;
   padding:20px;
   color:#ffffff;
   background-color:#006666;
+  display: inline-block;
+}
+
+footer p{
   text-align: center;
 }

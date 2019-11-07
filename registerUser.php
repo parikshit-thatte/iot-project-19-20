@@ -75,8 +75,8 @@
   if ($conn->connect_error) {
       die("Connection failed: " . $conn->connect_error);
   }
-
-  $sql = "INSERT INTO users(name, username, email, password, role_id) VALUES ('$name', '$uname', '$email', '$pwd1', 2)";
+  $hash = md5($pwd1);
+  $sql = "INSERT INTO users(name, username, email, password, role_id) VALUES ('$name', '$uname', '$email', '$hash', 2)";
   if($conn->query($sql) === TRUE){
     header("Location: loginPage.php");
     $_SESSION['successMsg'] = "Registered successfully!";

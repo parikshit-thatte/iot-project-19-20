@@ -292,8 +292,8 @@ ul#services li{
 } */
 
 footer{
+  margin-top: 150px;
   padding:20px;
-  /* margin-top:20px; */
   color:#ffffff;
   background-color:#006666;
   text-align: center;

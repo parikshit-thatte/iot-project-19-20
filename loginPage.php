@@ -60,6 +60,6 @@
     new user? <a class="link" href="registerPage.php">Register</a>
   </div>
 </div>
-<footer>
-  <p>ExpenseAnalyzer, Copyright &copy; 2019</p>
+<footer style="width:100%;">
+  <p style="padding:20px;color:#ffffff;background-color:#006666;text-align: center;">ExpenseAnalyzer, Copyright &copy; 2019</p>
 </footer>

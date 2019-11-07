@@ -24,13 +24,15 @@
   function loadForm(){
     $("#here").load("deleteUserForm.php");
   }
+  function loadForm2(){
+    $("#here").load("userFeedback.php");
+  }
 </script>
 <div class="topnavbar">
   <nav>
     <ul>
       <li><a href="<?php echo $dest ?>"><img src="logo-3.png" alt="ExpenseAnalyzer" width="50" height="50"></a></li>
       <div style="float:right;padding-right:20px;padding-top:20px;">
-        <li><a href="#" id="link4" onclick="loadForm1()">Add trendings</a></li>
         <li><button class="button btnFade btnBlueGreen" id="logout"><i class="fa fa-sign-out" aria-hidden="true">Log Out</button></i></li>
       </div>
     </ul>
@@ -41,6 +43,8 @@
     <div class="sidenavbar">
       <nav>
         <ul>
+          <li><a href="#" id="link4" onclick="loadForm1()">Add trendings</a></li>
+          <li><a href="#" id="link5" onclick="loadForm2()">View User Feedback</a></li>
           <li><a href="#" id="link1" onclick="loadForm()">Delete User</a></li>
         </ul>
       </nav>

@@ -48,6 +48,8 @@
   $sql = "SELECT password, role_id FROM users WHERE username = '$name'";
   $result = $conn->query($sql);
   $r = $result->fetch_array();
+  // echo $r['password'];
+  // echo md5($pwd);
   if($r['password'] === $pwd)
   {
     $_SESSION['currentUser'] = $name;

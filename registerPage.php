@@ -67,4 +67,8 @@
     Already a user? <a class="link" href="loginPage.php">Log in</a>
   </div>
 </div>
+<footer>
+  <p style="padding:20px;color:#ffffff;background-color:#006666;text-align: center;">ExpenseAnalyzer, Copyright &copy; 2019</p>
+</footer>
+
 <?php include 'inc\footer.php' ?>

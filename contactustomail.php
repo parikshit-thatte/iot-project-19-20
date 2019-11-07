@@ -28,7 +28,7 @@ if (isset($_POST['name'])&&isset($_POST['email'])){
   $sql = "INSERT INTO contactus(name,email,mobno,subject,body) VALUES('$name','$email','$mobno','$subject','$body')";
 
   if ($conn->query($sql) === TRUE) {
-      $_SESSION['successMsg1'] = "We will contact you soon".$name."have a nice day!!";
+      $_SESSION['successMsg3'] = "We will contact you soon".$name."have a nice day!!";
 
   } else {
       echo "Error: " . $sql . "<br>" . $conn->error;
@@ -55,14 +55,14 @@ use PHPMailer\PHPMailer\PHPMailer;
       $mail->isSMTP();
       $mail->HOST = "smtp.gmail.com";
       $mail->SMTPAuth = true;
-      $mail->Username = "jokerhardy1234@gmail.com";
-      $mail->Password="GenosSteel1234@";
+      $mail->Username = "com";
+      $mail->Password="";
       $mail->Port=587;
       $mail->SMTPSecure ="tls";
       $mail->Host = 'tls://smtp.gmail.com:587';
       $mail->isHTML(true);
       $mail->setFrom($email,$name);
-      $mail->addAddress("shindetejas15081999@gmail.com");
+      $mail->addAddress("");
       $mail->Subject=$subject;
       $mail->Body = $body;
 

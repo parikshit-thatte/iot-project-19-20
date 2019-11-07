@@ -29,7 +29,7 @@
 
 
     use PHPMailer\PHPMailer\PHPMailer;
-      $body="Hii this is reminder mail very important";
+      $body="Your House Rent is due";
       $subject="reminder mail success";
       require_once "PHPMailer/PHPMailer.php";
       require_once "PHPMailer/SMTP.php";
@@ -44,8 +44,8 @@
       $mail->isSMTP();
       $mail->HOST = "smtp.gmail.com";
       $mail->SMTPAuth = true;
-      $mail->Username = "jokerhardy1234@gmail.com";
-      $mail->Password="GenosSteel1234@";
+      $mail->Username = "";
+      $mail->Password="";
       $mail->Port=587;
       $mail->SMTPSecure ="tls";
       $mail->Host = 'tls://smtp.gmail.com:587';

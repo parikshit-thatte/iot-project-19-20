@@ -34,6 +34,9 @@
   foreach ($result2 as $res) {
     $monthly_inc += $res['amount']/$res['recurrence'] ;
   }
+  $date = date("Y-m-d");
+  $sql3 = "SELECT * FROM transactions WHERE date_time='$date' and user_id='$user_id'";
+  $result3 = $conn->query($sql3);
   $conn->close();
 ?>
 <script type="text/javascript">
@@ -82,7 +85,7 @@
       <div style="float:right;padding-right:20px;padding-top:20px;">
         <li><a href="#" id="link4" onclick="loadTHistory()">Transaction History</a></li>
         <li><a href="#" id="link4" onclick="loadPieChart()">Analyze Your Expenses</a></li>
-        <li><a href="#" id="link4">Graphs and Charts</a></li>
+        <!-- <li><a href="#" id="link4">Graphs and Charts</a></li> -->
         <li><a href="#" id="link4" onclick="loadTrendings()">Trending Investments</a></li>
         <li><button class="button btnFade btnBlueGreen" id="logout"><i class="fa fa-sign-out" aria-hidden="true">Log Out</button></i></li>
       </div>
@@ -109,14 +112,38 @@
             <div class="card shadow1">
                 <h2>Current monthly income</h2>
                 <h4><strong><?php echo $monthly_inc ?></strong></h4>
-                <h2>Today's Expenses</h2>
-                <h4><strong><?php echo "" ?></strong></h4>
-                <?php
-                if(isset($_SESSION['pieErr'])){
-                  echo "<h2 style='color: yellow;'>Data not found for analysis!</h2>";
-
-                }
-                ?>
+              <!-- </div>
+              <div class="shadow1 card"> -->
+                <h2>Today's Transactions</h2>
+                <table class="table">
+                  <tr>
+                    <th>Name</th>
+                    <th>Paid to</th>
+                    <th>Amount</th>
+                    <th>Type</th>
+                  </tr>
+                    <?php foreach ($result3 as $res) { ?>
+                      <tr>
+                      <td>
+                        <?php echo $res['name']; ?>
+                      </td>
+                      <td>
+                        <?php echo $res['paid_to']; ?>
+                      </td>
+                      <td>
+                        <?php echo $res['amount']; ?>
+                      </td>
+                      <td>
+                        <?php echo $res['type']; ?>
+                      </td>
+                    </tr>
+                    <?php } ?>
+                  </table>
+                  <?php
+                  if(isset($_SESSION['pieErr'])){
+                    echo "<h2 style='color: yellow;'>Data not found for analysis!</h2>";
+                  }
+                  ?>
             </div>
         </div>
       </div>

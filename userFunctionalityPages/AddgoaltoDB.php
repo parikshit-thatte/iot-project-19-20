@@ -71,7 +71,7 @@
   $r = $result->fetch_array();
   $user_id = $r['id'];
 
-  $sql = "INSERT INTO goals1(user_id, goaltype, startdate, enddate, goalamount,ginvestpmonth) VALUES('$user_id', '$goaltype','$startdate','$enddate','$goalamount','$ginvestpmonth')";
+  $sql = "INSERT INTO goals1 (user_id, goaltype, startdate, enddate, goalamount,ginvestpmonth) VALUES('$user_id', '$goaltype','$startdate','$enddate','$goalamount','$ginvestpmonth')";
 
   if ($conn->query($sql) === TRUE) {
       $_SESSION['successMsg1'] = "New Goal ".$goaltype." created successfully";

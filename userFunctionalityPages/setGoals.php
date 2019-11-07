@@ -37,7 +37,7 @@
       <th>Start Date</th>
       <th>End Date</th>
       <th>Goal Amount(in ₹)</th>
-      <th>Investment/month</th>
+      <th>amt/month</th>
     </tr>
       <?php foreach ($result2 as $res) { ?>
         <tr>

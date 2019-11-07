@@ -67,6 +67,7 @@
         $sql4 = "INSERT INTO others(t_id, t_description) VALUES('$tid', '$description')";
         $conn->query($sql4);
       }
+      header("Location: ../userDashboard.php");
       $conn->close();
   }
 ?>
